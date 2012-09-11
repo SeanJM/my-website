@@ -184,7 +184,7 @@ html{}
               }
       /* < More Info */
       /* Lightbox */
-      .shadowbox {
+      #shadowbox {
         width:100%;
         background:rgba(0,0,0,0.6);
         z-index:1000;
@@ -210,40 +210,40 @@ html{}
             -moz-transform:rotate(360deg);
           }
         }
-        .shadowbox .loader{
+        #shadowbox .loader{
           width:100%;
           position: absolute;
         }
-          .shadowbox .loader .spinner,
-          .shadowbox .loader .spinner .progress{
+          #shadowbox .loader .spinner,
+          .no-cssanimations #shadowbox .loader .spinner .progress{
             width:50px;
             height:50px;
             margin:auto;
           }
-          .cssanimations .shadowbox .loader .spinner{
+          .cssanimations #shadowbox .loader .spinner{
             border:10px solid #D6D6D6;
             border-right-color: #0098FF;
             border-radius: 35px;
             -webkit-animation: loader 0.7s linear infinite;
             -moz-animation: loader 0.7s linear infinite;
           }
-          .no-cssanimations .shadowbox .loader .spinner,
-          .shadowbox .loader .spinner .progress{
+          .no-cssanimations #shadowbox .loader .spinner,
+          .no-cssanimations #shadowbox .loader .spinner .progress{
             background-image: url('../img/home-sprites_Spinner.png');
             background-repeat: no-repeat;
             background-position: 0 0;
           }
-        .shadowbox .frameContainer{
+        #shadowbox .frameContainer{
           width:100%;
           position: absolute;
         }
-        .shadowbox .imageFrame{
+        #shadowbox .imageFrame{
           background:#fff;
           margin:auto 10px;
           position: relative;
           float: left;
         }
-          .shadowbox .imageFrame .close{
+          #shadowbox .imageFrame .close{
             float:right;
             width:16px;
             height:16px;
@@ -252,10 +252,10 @@ html{}
             position: relative;
             z-index: 100;
           }
-          .shadowbox .imageFrame .close:hover{
+          #shadowbox .imageFrame .close:hover{
             background-position:-578px -98px;
           }
-          .shadowbox .imageFrame .nav{
+          #shadowbox .imageFrame .nav{
             float: left;
             margin-top:10px;
             position: absolute;
@@ -265,15 +265,15 @@ html{}
             border-top:1px solid #D5D5D5;
             height: 40px;
           }
-          .shadowbox .imageFrame .nav .prev{
+          #shadowbox .imageFrame .nav .prev{
             background: #0098FF;
             margin-left:5px;
           }
-          .shadowbox .imageFrame .nav .next{
+          #shadowbox .imageFrame .nav .next{
             background: #0098FF; 
             margin-left:5px;
           }
-          .shadowbox .imageFrame .btn{
+          #shadowbox .imageFrame .btn{
             line-height: 30px;
             color:#fff;
             display:inline-block;
@@ -283,24 +283,24 @@ html{}
             background: #0098FF;
             margin-top:5px;
           }
-          .shadowbox .imageFrame .btn:hover{
+          #shadowbox .imageFrame .btn:hover{
             background: #4FB2FF;
           }
-          .shadowbox .imageFrame .prev{
+          #shadowbox .imageFrame .prev{
           }
-          .shadowbox .imageFrame .next{
+          #shadowbox .imageFrame .next{
             margin-left:10px;
           }
-          .shadowbox .imageFrame .count{
+          #shadowbox .imageFrame .count{
             float:right;
             color:#989898;
             margin:0 10px;
           }
-            .shadowbox .imageFrame .count p{
+            #shadowbox .imageFrame .count p{
               line-height: 40px;
               float: left;
             }
-            .shadowbox .imageFrame .titlebar{
+            #shadowbox .imageFrame .titlebar{
               position: absolute;
               top:0;
               left:0;
@@ -308,7 +308,7 @@ html{}
               height:40px;
               border-bottom: 1px solid #D5D5D5;
             }
-            .shadowbox .imageFrame .scrollbar{
+            #shadowbox .imageFrame .scrollbar{
               width:8px;
               position: absolute;
               right: 12px;
@@ -316,27 +316,27 @@ html{}
               background: #E5E5E5;
               border-radius: 4px;
             }
-            .shadowbox .imageFrame .scrollbar .scroll{
+            #shadowbox .imageFrame .scrollbar .scroll{
               width:8px;
               position: absolute;
               background: #989898;
               border-radius: 4px;
             }
-            .shadowbox .imageFrame .scrollbar .scroll:hover,
-            .shadowbox .imageFrame .scrollbar .scroll:focus,
-            .shadowbox .imageFrame .scrollbar .scroll:active{
+            #shadowbox .imageFrame .scrollbar .scroll:hover,
+            #shadowbox .imageFrame .scrollbar .scroll:focus,
+            #shadowbox .imageFrame .scrollbar .scroll:active{
               background: #0098FF;
             }
-            .shadowbox .imageFrame .mask{
+            #shadowbox .imageFrame .mask{
               margin:40px auto 0;
               position: relative;
               width:100%;
             }
-              .shadowbox .imageFrame .mask img{
+              #shadowbox .imageFrame .mask img{
                 margin:auto;
                 position: absolute;
               }
-        .shadowbox .mask{
+        #shadowbox .mask{
           overflow:hidden;
         }
   /* ------------- Home ------------- */
