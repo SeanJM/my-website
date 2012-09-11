@@ -1,0 +1,348 @@
+<div class="title">
+  <img src="/img/content-titles/interface-design.png" />
+  <p>Interface designs that would make even the biggest cat pur.</p>
+</div>
+
+<script type="text/javascript">
+	$(function() {
+		$('.client-info .job-description').hide();
+		$('.client-info .job-description p').css('opacity',0);
+		$('.client-scroll .client-title').each(function() {
+			$(this).children().wrapAll('<div class="container" />');
+		});
+		$('.show-all').click(function() {
+			$(this).hide();
+			$(this).parents('.client-info').find('.show-less').show();
+			$(this).parent().children('.toggle').slideDown(600);
+			$(this).parents('.client-info').find('.client-scroll .job-description').slideDown(400);
+			$(this).parents('.client-info').find('.job-description').children().animate({opacity: "1"},900);
+			return false;
+		});
+		$('.show-less').click(function() {
+			$(this).hide();
+			$(this).parents('.client-info').find('.show-all').show();
+			$(this).parents('.client-info').find('.job-description').children().animate({opacity: "0"},400,function() {
+				$(this).parents('.client-info').find('.client-scroll .job-description').slideUp(300);
+				$(this).parents('.client-info').find('.toggle').slideUp(400);
+			});
+			return false;
+		});
+		$('.client-sample').each(function() {
+			$(this).find('.client-sample-img:gt(2)').wrapAll('<div class="toggle" />');
+		});
+		$('.toggle').hide();
+		$('.client-info').hover(function() {
+			$(this).find('.toggle').css('height','auto').stop().slideDown(200);
+			$(this).find('.client-scroll .job-description').slideDown(400);
+			$(this).find('.job-description').children().animate({opacity: "1"},900);
+		}, function() {
+			$(this).find('.toggle').stop().slideUp(200);
+			$(this).find('.client-scroll .job-description').slideUp(400);
+			$(this).find('.job-description').children().animate({opacity: "0"},400);
+		});
+		$('.client-info').each(function() { 
+			$(this).wrap('<div class="client-info-container" />');
+		});
+	});
+</script>
+
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>Surfpin</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-android.png" alt="ios interface" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="job-description">
+					<p>Client provided wireframes that needed to be skinned.</p>
+				</div>
+				<div class="separator"><!-- --></div>
+				<p class="job-info">UI design, graphic design</p>
+			</div>
+		</div>
+	
+		<div class="client-end"></div>
+	
+	</div>
+	<div class="client-sample">
+		<?php dirGallery('/img/interface/surfpin/'); ?>
+	</div>
+	
+</div>
+
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>Agile Poet</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-ios.png" alt="ios interface" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="job-description">
+					<p>The job included designing all of the graphic elements for the game and the interface.</p>
+				</div>
+				<div class="separator"><!-- --></div>
+				<p class="job-info">UI design, graphic design, 3D</p>
+			</div>
+		</div>
+	
+		<div class="client-end"></div>
+	
+	</div>
+	<div class="client-sample">
+		<?php dirGallery('/img/interface/agile-poet/'); ?>
+	</div>
+	
+</div>
+
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>Sculptris</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-windows.png" alt="windows interface" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="job-description">
+					<p>Now owned by Pixologic, I worked with Dr Petterson on developing the interface and features of Sculptris.</p>
+				</div>
+				<div class="separator"><!-- --></div>
+				<p class="job-info">UI design, feature design</p>
+			</div>
+		</div>
+	
+		<div class="client-end"></div>
+	
+	</div>
+
+
+	<div class="client-sample">
+		<?php dirGallery('/img/interface/sculptris/'); ?>
+	</div>
+</div>
+
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>Client Media</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-ios.png" alt="ios interface" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="job-description">
+					<p>The client had an existing application, he wanted to keep the look and appearance of it while adding new features and graphics to it.
+				</div>
+				<div class="separator"><!-- --></div>
+				<p class="job-info">UI design, graphic design</p>
+			</div>
+		</div>
+	
+		<div class="client-end"></div>
+	
+	</div>
+
+
+	<div class="client-sample">
+		<?php dirGallery('/img/interface/client-media/'); ?>
+	</div>
+</div>
+
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>STL Contact Manager</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-ios.png" alt="ios interface" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="job-description">
+					<p>Client had an existing Calendar application which he wanted to refresh the look and feel. I worked with the client on polishing up his existing interface while minimizing code changes to the application.</p>
+				</div>
+				<div class="separator"><!-- --></div>
+				<p class="job-info">UI design, graphic design</p>
+			</div>
+		</div>
+	
+		<div class="client-end"></div>
+	
+	</div>
+
+
+<div class="client-sample">
+		<?php dirGallery('/img/interface/stl/'); ?>
+	</div>
+</div>
+
+<div class="seperator"></div>
+
+<div class="title">
+	<img src="/img/content-titles/web-design.png" />
+	<p>Website designs that look good and work well.</p>
+</div>
+
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>Trademac</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-web.png" alt="ios interface" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="separator"><!-- --></div>
+				<p class="job-info">Web design, graphic design, wordpress</p>
+			</div>
+		</div>
+		<div class="client-end"></div>
+	</div>
+
+
+	<div class="client-sample">
+		<div class="client-sample-img">
+			<a href="http://www.seanjmacisaac.com/trademac/">
+				<img src="/img/web-design/trademac.png" alt="" />
+			</a>
+		</div>
+       </div> 
+</div>
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>Trademac Blog</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-web.png" alt="ios interface" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="separator"><!-- --></div>
+				<p class="job-info">Web design, graphic design, wordpress</p>
+			</div>
+		</div>
+		<div class="client-end"></div>
+	</div>
+
+
+	<div class="client-sample">
+		<div class="client-sample-img">
+			<a href="http://www.seanjmacisaac.com/trademac/blog/">
+				<img src="/img/web-design/trademac-blog.png" alt="" />
+			</a>
+		</div>
+       </div> 
+</div>
+
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>Next Nova</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-web.png" alt="ios interface" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="separator"><!-- --></div>
+				<p class="job-info">Web design, graphic design, wordpress</p>
+			</div>
+		</div>
+		<div class="client-end"></div>
+	</div>
+
+
+	<div class="client-sample">
+		<div class="client-sample-img">
+			<a href="http://www.nextnova.com/">
+				<img src="/img/web-design/next-nova.png" alt="" />
+			</a>
+		</div>
+       </div> 
+</div>
+		
+	
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>JGraph</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-web.png" alt="ios interface" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="separator"><!-- --></div>
+				<p class="job-info">Web design, graphic design</p>
+			</div>
+		</div>
+	
+		<div class="client-end"></div>
+
+	</div>
+
+
+	<div class="client-sample">
+		<div class="client-sample-img">
+			<a href="http://www.jgraph.com/">
+				<img src="/img/web-design/jgraph.png" alt="" />
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="client-info">
+	<div class="client-scroll">
+		<div class="client-title">
+			<h1>Raw Comedy</h1>
+			<div class="separator"><!-- --></div>
+			<div class="platform"><img src="/img/platform-web.png" alt="web design" /></div>
+		</div>
+		<div class="client-mid">
+			<div class="container">
+				<div class="separator"><!-- --></div>
+				<p class="job-info">Web design, graphic design</p>
+			</div>
+		</div>
+	
+		<div class="client-end"></div>
+
+	</div>
+
+	<div class="client-sample">
+		<div class="client-sample-img">
+			<a href="http://www.rawcomedy.se/">
+				<img src="/img/web-design/raw-comedy.png" alt="" />
+			</a>
+		</div>
+	</div>
+</div>
+
+<div class="seperator"></div>
+
+<div class="title">
+	<img src="/img/content-titles/logo-design.png" />
+	<p>Logo designs that make you want to meow.</p>
+</div>
+
+<div class="logo-container">
+	<div class="client-info">
+		<?php dirGallery('/img/logo-design/'); ?>
+	</div>
+</div>
+
+<br />
+<br />
+
+<div class="seperator"></div>
+<div class="title">
+	<img src="/img/content-titles/3D.png" />
+	<p>3D characters from the heights of imagination.</p>
+</div>
+<div class="logo-container">
+	<div class="client-info">
+		<?php dirGallery('/img/3d/'); ?>
+	</div>
+</div>
+</div>

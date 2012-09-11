@@ -1,0 +1,875 @@
+*{
+  font-family: 'Open Sans', sans-serif;
+  margin:0;
+  padding:0;
+}
+html{}
+  body{
+      background:#E8E8E8;
+  }
+    #mainContainer{
+      width:950px;
+      margin:auto;
+    }
+      #mainContainer > .container{
+        width:100%;
+        float:left;
+      }
+  a{
+    color:inherit;
+    text-decoration: none;
+    color:#0098FF;
+  }
+  a:hover{
+    color:#42D5FF;
+    border-bottom:1px dotted #42D5FF;
+  }
+  .i{
+    font-style: italic;
+  }
+  .u{
+    border-bottom:1px dotted #FF007F;
+  }
+  /* ----------- Sprites ------------ */
+    .sprite{
+      background-image:url('../img/home-sprites-01.png');
+      background-repeat:no-repeat;
+    }
+  /* ---------- Aggredated ---------- */
+  .icon.range{
+    display: inline-block;
+    float: none;
+    width: 7px;
+    height: 8px;
+    margin: 0 8px 0;
+    background-position: -647px 0;
+  }
+    div.section{
+      float: left;
+      clear: both;
+      width: 850px;
+      padding: 10px 50px;
+    }
+      div.section .introduction{
+        float:left;
+        width:100%;
+      }
+        div.section .introduction p{
+          text-align: justify;
+          font-size: 16px;
+          font-weight: 400;
+          color: #989898;
+        }
+        div.section .introduction p ~ p{
+          margin-top:30px;
+        }
+      div.section h1.section-title{
+        float: left;
+        clear: both;
+        width: 700px;
+        margin: 15px 0 20px 0;
+        padding: 10px 0 0;
+        text-align: left;
+        font-size: 38px;
+        font-weight: 400;
+        color: #7E7E7E;
+      }
+      /* > More Info */
+      .moreInfo{
+        position: relative;
+        cursor: pointer;
+      }
+        .moreInfo .more{
+          display: none;
+          position: absolute;
+          top: 23px;
+          left: 10px;
+          width: 200px;
+          padding: 15px 20px 20px;
+          border: 1px solid #989898;
+          background: #fff;
+        }
+          .moreInfo .more .content{
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            color: #989898;
+          }
+          .moreInfo .more .tech {
+            display: block;
+            margin: 15px 0 0 0;
+            padding-top: 12px;
+            border-top: 1px solid #E6E6E6;
+            text-align: left;
+            font-size: 14px;
+            color: #989898;
+          }
+            .moreInfo .more .tech li:nth-child(1),
+            .moreInfo .more .tech li:nth-child(2){
+              margin-top:7px;
+            }
+            .moreInfo .more .tech li {
+              display: block;
+              float: left;
+              width: 50%;
+              margin-top: 8px;
+              font-size: 12px;
+              line-height: 16px;
+            }
+              .moreInfo .more .tech li .icon {
+                display: block;
+                float: left;
+                width: 16px;
+                height: 17px;
+                margin: 0 2px 0 0;
+              }
+              .moreInfo .more .tech li .ai{
+                background-position: -639px -32px;
+              }
+              .moreInfo .more .tech li .ps{
+                background-position: -655px -32px;
+              }
+              .moreInfo .more .tech li .css3{
+                background-position: -639px -48px;
+              }
+              .moreInfo .more .tech li .css2{
+                background-position: -655px -64px;
+              }
+              .moreInfo .more .tech li .html5{
+                background-position: -623px -48px;
+              }
+              .moreInfo .more .tech li .html4{
+                background-position: -639px -64px;
+              }
+              .moreInfo .more .tech li .jq{
+                background-position: -623px -32px;
+              }
+              .moreInfo .more .tech li .git{
+                background-position: -655px -48px;
+              }
+              .moreInfo .more .tech li .chrome{
+                background-position: -623px -64px;
+              }
+        .moreInfo:hover .more{
+          display:block;
+          z-index: 100;
+        }
+      /* < More Info */
+      /* Lightbox */
+      .shadowbox {
+        width:100%;
+        background:rgba(0,0,0,0.6);
+        z-index:1000;
+        position: relative;
+      }
+        @-webkit-keyframes loader {
+          0%{
+            -webkit-transform:rotate(0deg);
+          }
+          50%{
+          }
+          100%{
+            -webkit-transform:rotate(360deg);
+          }
+        }
+        @-moz-keyframes loader {
+          0%{
+            -moz-transform:rotate(0deg);
+          }
+          50%{
+          }
+          100%{
+            -moz-transform:rotate(360deg);
+          }
+        }
+        .shadowbox .loader{
+          width:100%;
+          position: absolute;
+        }
+          .shadowbox .loader .spinner,
+          .shadowbox .loader .spinner .progress{
+            width:50px;
+            height:50px;
+            margin:auto;
+          }
+          .cssanimations .shadowbox .loader .spinner{
+            border:10px solid #D6D6D6;
+            border-right-color: #0098FF;
+            border-radius: 35px;
+            -webkit-animation: loader 0.7s linear infinite;
+            -moz-animation: loader 0.7s linear infinite;
+          }
+          .no-cssanimations .shadowbox .loader .spinner,
+          .shadowbox .loader .spinner .progress{
+            background-image: url('../img/home-sprites_Spinner.png');
+            background-repeat: no-repeat;
+            background-position: 0 0;
+          }
+        .shadowbox .frameContainer{
+          width:100%;
+          position: absolute;
+        }
+        .shadowbox .imageFrame{
+          background:#fff;
+          margin:auto 10px;
+          position: relative;
+          float: left;
+        }
+          .shadowbox .imageFrame .close{
+            float:right;
+            width:16px;
+            height:16px;
+            margin:13px 10px 0 0;
+            background-position:-578px -82px;
+            position: relative;
+            z-index: 100;
+          }
+          .shadowbox .imageFrame .close:hover{
+            background-position:-578px -98px;
+          }
+          .shadowbox .imageFrame .nav{
+            float: left;
+            margin-top:10px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            border-top:1px solid #D5D5D5;
+            height: 40px;
+          }
+          .shadowbox .imageFrame .nav .prev{
+            background: #0098FF;
+            margin-left:5px;
+          }
+          .shadowbox .imageFrame .nav .next{
+            background: #0098FF; 
+            margin-left:5px;
+          }
+          .shadowbox .imageFrame .btn{
+            line-height: 30px;
+            color:#fff;
+            display:inline-block;
+            text-align: center;
+            width:90px;
+            cursor: pointer;
+            background: #0098FF;
+            margin-top:5px;
+          }
+          .shadowbox .imageFrame .btn:hover{
+            background: #4FB2FF;
+          }
+          .shadowbox .imageFrame .prev{
+          }
+          .shadowbox .imageFrame .next{
+            margin-left:10px;
+          }
+          .shadowbox .imageFrame .count{
+            float:right;
+            color:#989898;
+            margin:0 10px;
+          }
+            .shadowbox .imageFrame .count p{
+              line-height: 40px;
+              float: left;
+            }
+            .shadowbox .imageFrame .titlebar{
+              position: absolute;
+              top:0;
+              left:0;
+              width:100%;
+              height:40px;
+              border-bottom: 1px solid #D5D5D5;
+            }
+            .shadowbox .imageFrame .scrollbar{
+              width:8px;
+              position: absolute;
+              right: 12px;
+              top:16px;
+              background: #E5E5E5;
+              border-radius: 4px;
+            }
+            .shadowbox .imageFrame .scrollbar .scroll{
+              width:8px;
+              position: absolute;
+              background: #989898;
+              border-radius: 4px;
+            }
+            .shadowbox .imageFrame .scrollbar .scroll:hover,
+            .shadowbox .imageFrame .scrollbar .scroll:focus,
+            .shadowbox .imageFrame .scrollbar .scroll:active{
+              background: #0098FF;
+            }
+            .shadowbox .imageFrame .mask{
+              margin:40px auto 0;
+              position: relative;
+              width:100%;
+            }
+              .shadowbox .imageFrame .mask img{
+                margin:auto;
+                position: absolute;
+              }
+        .shadowbox .mask{
+          overflow:hidden;
+        }
+  /* ------------- Home ------------- */
+  body#home{}
+    /* --------- Header --------- */
+    #fixed-header{
+      position: fixed;
+      width:100%;
+      z-index:1000;
+      top:-51px;
+    }
+    #fixed-header > .container{
+      width:950px;
+      margin:auto;
+    }
+    #fixed-header > .container > .content{
+      background: #0098FF;
+      width:950px;
+      margin:auto;
+      float: left;
+      height:50px;
+    }
+    #fixed-header .dropdown{
+      margin:10px 0 0 10px;
+    }
+      #fixed-header .dropdown div {
+        background: #FFF;
+        float:left;
+        width:100%;
+        height: 30px;
+      }
+      #fixed-header .dropdown:hover div{
+      }
+      #fixed-header .dropdown ul{
+        display:none;
+        border-top: 1px solid #fff;
+      }
+      li.contact:hover {
+        background:#4FB2FF;
+      }
+      #fixed-header .dropdown p {
+        float:left;
+        line-height: 30px;
+        padding:0 0 0 10px;
+        font-size: 14px;
+        color:#0098FF;
+      }
+      #fixed-header .dropdown p:after {
+        content:"";
+        border:4px solid transparent;
+        border-top-color: #0098FF;
+        position: relative;
+        top: 12px;
+        right: -14px;
+      }
+     /* .contact.email:hover .sprite{
+        background-position: -594px -82px;
+      }
+      .contact.skype:hover .sprite{
+        background-position: -594px -120px;
+      }
+      .contact.twitter:hover .sprite{
+        background-position: -594px -158px;
+      }
+      .contact.linkedin:hover .sprite{
+        background-position: -594px -196px;
+      }*/
+    #fixed-header .logo{
+      width:99px;
+      height:34px;
+      background-position: -232px 0;
+      margin:7px auto;
+    }
+    #header{
+      color:#989898;
+      position: relative;
+      background:#0098FF;
+      height:400px;
+      border-bottom: 3px solid #0087E2;
+    }
+      .dropdown{
+        width:97px;
+      }
+      .dropdown,
+      #contact-links {
+        float:left;
+      }
+      #contact-links{
+        margin:10px 0 0 -20px;
+        width:99px;
+      }
+      @keyframes "fadeIn" {0% {-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); opacity: 0; } 100% {-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100); opacity: 1; } }
+      @-moz-keyframes fadeIn {0% {filter: alpha(opacity=0); opacity: 0; } 100% {filter: alpha(opacity=100); opacity: 1; } }
+      @-webkit-keyframes "fadeIn" {0% {filter: alpha(opacity=0); opacity: 0; } 100% {filter: alpha(opacity=100); opacity: 1; } }
+      @-ms-keyframes "fadeIn" {0% {-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; filter: alpha(opacity=0); opacity: 0; } 100% {-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100); opacity: 1; } }
+      @-o-keyframes "fadeIn" {0% {filter: alpha(opacity=0); opacity: 0; } 100% {filter: alpha(opacity=100); opacity: 1; } }
+
+      .dropdown ul,
+      #contact-links ul {
+        float: left;
+        clear: both;
+        width: 100%;
+        height: 97px;
+        margin: 0;
+        list-style: none;
+      }
+      #contact-link ul.fadeIn{
+        -webkit-animation: fadeIn 1s;
+        -moz-animation: fadeIn 1s;
+        -ms-animation: fadeIn 1s;
+        -o-animation: fadeIn 1s;
+        animation: fadeIn 1s;
+        display:block;
+        opacity: 1;
+      }
+      #contact-link ul.fadeOut{
+        -webkit-animation: fadeIn 1s reverse;
+        -moz-animation: fadeIn 1s reverse;
+        -ms-animation: fadeIn 1s reverse;
+        -o-animation: fadeIn 1s reverse;
+        animation: fadeIn 1s reverse;
+        opacity: 0;
+      }
+        li.contact{
+          float: left;
+          padding:5px;
+          background: #0098FF;
+          cursor: pointer;
+        }
+        #contact-links ul li{
+          border:1px solid #54BBFF;
+        }
+        #contact-links ul li:nth-child(2n+1){
+          border-right:none;
+          border-left:none;
+        }
+        #contact-links ul li:nth-child(2n+2){
+          border-right:none;
+          border-right:left;
+        }
+        #contact-links ul li:nth-child(1),
+        #contact-links ul li:nth-child(2){
+          border-bottom:none;
+          border-top:none;
+        }
+        #contact-links ul li:nth-child(3),
+        #contact-links ul li:nth-child(4){
+          border-bottom:none;
+        }
+        .dropdown ul li:nth-child(2n+1){
+          border-right:1px solid #fff;
+        }
+        .dropdown ul li:nth-child(3),
+        .dropdown ul li:nth-child(4){
+          border-top:1px solid #fff;
+        }
+        .contact .sprite{
+          width: 38px;
+          height: 38px;
+          float: left;  
+        }
+        .contact.email .sprite{
+          background-position: -632px -82px;
+        }
+        .contact.skype .sprite{
+          background-position: -632px -120px;
+        }
+        .contact.twitter .sprite{
+          background-position: -632px -158px;
+        }
+        .contact.linkedin .sprite{
+          background-position: -632px -196px;
+        }
+      #header h1.email {
+        float: left;
+        font-size: 16px;
+        font-weight: normal;
+      }
+      #header h2.phone {
+        float: left;
+        clear: both;
+        font-size: 16px;
+        font-weight: normal;
+      }
+      #header h2.lang-toggle {
+        float: right;
+        font-size: 16px;
+        font-weight: normal;
+        cursor: pointer;
+      }
+      #header div.logo {
+        width: 232px;
+        height: 77px;
+        margin: 27px auto 10px;
+      }
+      #header div.platforms {
+        width: 562px;
+        height:204px;
+        margin: 49px auto;
+      }
+        #header div.platforms .sprite{
+          float: left;
+        }
+        #header div.platforms .mobile{
+          width: 71px;
+          height: 139px;
+          margin: 67px 0 0 -25px;
+          background-position: -968px -313px;
+          position: relative;
+          z-index: 0;
+        }
+        #header div.platforms .tablet{
+          width: 175px;
+          height: 215px;
+          margin: -4px 0px 0;
+          background-position: -425px -238px;
+        }
+        #header div.platforms .desktop{
+          width: 369px;
+          height: 205px;
+          margin: 9px 0 0 -79px;
+          background-position: -601px -247px;
+          position: relative;
+          z-index: 1;
+        }
+    /* ------- End Header ------- */
+    /* -------- Overview --------- */
+    #overview{
+      background:#fff;
+      padding-bottom:50px;
+    }
+      #overview .introduction p:first-child{
+        margin-top:36px;
+        text-align: center;
+        font-size: 16px;
+      }
+        #overview .moreInfo .more{
+          top:16px;
+        }
+    /* ------- End Overview ------ */
+    /* -------- Portfolio -------- */
+    #portfolio{
+      background:#fff;
+      margin:30px 0 0 0;
+      padding-top:40px;
+      padding-bottom:40px;
+    }
+      #portfolio .col{
+        width:29.5%;
+        margin-bottom:30px;
+        float:left;
+      }
+      #portfolio .col:nth-child(3n+1){
+        float:left;
+      }
+      #portfolio .col:nth-child(3n+2){
+        margin-left:5%;
+        margin-right:5%;
+      }
+      #portfolio .col:nth-child(3n+3){
+        float:right;
+      }
+      /* Every column after the first row of 3 columns */
+        #portfolio .col .project-title{
+          width:100%;
+          float:left;
+          margin:0 0 16px;
+        }
+          #portfolio .col .project-title h3.project-client{
+            float:left;
+            font-size: 16px;
+            font-weight: 400;
+            color:#7E7E7E;
+            line-height: 30px;
+          }
+          #portfolio .col .project-title h2.date{
+            color:#989898;
+            float:right;
+            font-size: 15px;
+            line-height: 30px;
+            font-weight: 400;
+          }
+          #portfolio .col .project-title h4.role{
+            float: right;
+            clear: right;
+            font-weight: 300;
+            color: #989898;
+            font-size: 15px;
+            background: #F3F3F3;
+            border:1px solid #D6D6D6;
+            padding:0 7px;
+            line-height: 23px;
+          }
+          #portfolio .col .project-title h3.project-name{
+            float:left;
+            font-weight: 300;
+            clear:left;
+            font-size: 15px;
+            color:#989898;
+            line-height: 23px;
+          }
+          #portfolio hr{
+            width:100%;
+            border:none;
+            border-bottom:1px solid #E6E6E6;
+            margin:10px 0 30px;
+            float: left;
+          }
+          /* Portfolio Album */
+            #portfolio .col .album{
+              float: left;
+              position: relative;
+              top: 0;
+              right: 0;
+              width:100%;
+            }
+              #portfolio .col .album .container{
+                overflow: hidden;
+                background: #fff;
+                box-shadow:0 2px 2px rgba(0,0,0,0.2),0 0 3px rgba(0,0,0,0.4);
+                float: left;
+                position: relative;
+                width:249px;
+                height:222px;
+              }
+                #portfolio .col .album .container .mask{
+                  margin:2px;
+                  position: absolute;
+                  top:0;
+                  left:0;
+                  width:245px;
+                  overflow: hidden;
+                }
+                #portfolio .col .album .container .mask.active{
+                  z-index: 1;
+                }
+                    #portfolio .col .album .container .mask a img{
+                      float: left;
+                    }
+              #portfolio .col .album .imgNav{
+                width:auto;
+                height:20px;
+                margin:12px auto 0;
+                clear:both;
+                display: inline-block;
+              }
+                #portfolio .col .album .imgNav .btn{
+                  width:20px;
+                  height:20px;
+                  float: left;
+                }
+                #portfolio .col .album .imgNav .btn .circle{
+                  width:8px;
+                  height:8px;
+                  background: #D5D5D5;
+                  border-radius: 4px;
+                  margin:6px auto;
+                  box-shadow:inset 0 1px 3px rgba(0,0,0,0.6);
+                }
+                #portfolio .col .album .imgNav .btn.active .circle{
+                  background: #0098FF;
+                }
+          /* End Album */
+        #portfolio .moreInfo .more{
+          top: 43px;
+        }
+        #portfolio .col p.description{
+          color:#989898;
+          font-weight: 300;
+          font-size: 15px;
+          margin:12px 0 0 0;
+          height:60px;
+          float:left;
+          clear: both;
+          text-align: justify;
+        }
+    /* ------ End Portfolio ----- */
+    /* -------- Workflow -------- */
+    #workflow{
+      background:#fff;
+      margin:30px 0 0 0;
+    }
+      #workflow div.col{
+        width:31%;
+        height:142px;
+        float: left;
+        margin:20px 0 0 0;
+      }
+      #workflow div.col:nth-child(3n+3){
+        margin-left:1.5%;
+      }
+      #workflow div.col:nth-child(3n+4){
+        margin-left:1.5%;
+      }
+        #workflow div.col .icon{
+          width:85px;
+          height:80px;
+          margin:auto;
+        }
+        #workflow div.col .icon.app-flow{
+          background-position: 0 -330px;
+        }
+        #workflow div.col .icon.wire{
+          background-position: -85px -330px;
+        }
+        #workflow div.col .icon.proto{
+          background-position: -170px -330px;
+        }
+        #workflow div.col .icon.look{
+          background-position: -255px -330px;
+        }
+        #workflow div.col h1{
+          width:100%;
+          text-align: center;
+          font-size:20px;
+          color:#989898;
+          font-weight: 300;
+        }
+        #workflow div.col h2{
+          width:100%;
+          text-align: center;
+          font-size:14px;
+          color:#686868;
+          font-weight: 300;
+        }
+    /* ------ End Workflow ------ */
+    /* ------ Experience -------- */
+    #experience{}
+    /* ---- End Experience ------ */
+    /* -------- Software -------- */
+    #software{
+      margin-top:30px;
+      background:#fff;
+    }
+      #software .col{
+        width:33%;
+        height:200px;
+        float:left;
+        margin: 20px 0;
+      }
+      /* Icons */      
+        #software .col .icon{
+          width: 85px;
+          height: 80px;
+          margin:auto;
+        }
+        /* Illustrator */
+        #software .col .icon.ai{
+          background-position: -85px -90px;
+        }
+        /* Photoshop */
+        #software .col .icon.ps{
+          background-position: -171px -90px;
+        }
+        /* jQuery */
+        #software .col .icon.jq{
+          background-position: 0 -90px;
+        }
+        /* HTML5 */
+        #software .col .icon.html{
+          background-position: 0 -170px;
+        }
+        /* CSS3 */
+        #software .col .icon.css{
+          background-position: -85px -170px;
+        }
+        /* Git */
+        #software .col .icon.git{
+          background-position: -171px -170px;
+        }
+      /* End Icons */
+        #software .col h3{
+          text-align: center;
+          font-size: 20px;
+          font-weight: 400;
+          line-height: 50px;
+          color: #7E7E7E;
+        }
+        #software .col .experience{
+        }
+        #software .col p{
+          width:90%;
+          margin:0 0 0 5%;
+          text-align: justify;
+          color:#989898;
+        }
+    /* ------ End Software ------ */
+    #experience{}
+    /* ---- End Experience ------ */
+    /* ------- Education -------- */
+    #education{}
+      #education .col{
+        width:49%;
+        margin:10px 0 0 0;
+        float: left;
+        height:116px;
+      }
+      #education .col.right{
+        float: right;
+      }
+      /* Education Icons */
+        #education .col .schoolIcon{
+          width:80px;
+          height:80px;
+          float: left;
+          margin:7px 20px 50px 10px;
+        }
+        /* Humber College */
+        #education .col .schoolIcon.hc{
+          background-position: 0 -250px;
+        }
+        /* International Academy of Design and Tech */
+        #education .col .schoolIcon.iadt{
+          background-position: -80px -250px;
+        }
+        /* UQO */
+        #education .col .schoolIcon.uqo{
+          background-position: -160px -250px;
+        }
+        /* Ecole Secondaire Public De La Salle */
+        #education .col .schoolIcon.dls{
+          background-position: -240px -250px;
+        }
+        #education .col h2{
+          font-size: 18px;
+          font-weight: 400;
+          color:#7E7E7E;
+        }
+        #education .col h2.date{
+          line-height: 18px;
+          margin:5px 0 5px 0;
+          font-size: 16px;
+          color:#7E7E7E;
+        }
+          #education .col h2.date .icon.range{
+            position: relative;
+            top: -1px;
+          }
+        #education .col h3{
+          font-size: 16px;
+          font-weight: 400;
+          color:#989898;
+        }
+        #education .col h4{
+          font-size: 16px;
+          font-weight: 300;
+          color:#989898;
+          line-height: 26px;
+        }
+    /* ----- End Education ------ */
+    /* ---------- Job ----------- */
+    #job {
+      background:#fff;
+      margin-top:30px;
+      margin-bottom:30px;
+      padding-bottom: 30px;
+    }
+      #job .introduction p:last-child{
+        margin-bottom:20px;
+      }
+    /* -------- End Job --------- */
+  /* ---------- End Home ----------- */

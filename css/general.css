@@ -1,0 +1,138 @@
+*{
+  margin:0;
+  padding:0;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+
+html{
+  font-family: 'Open Sans';
+}
+body{ 
+}
+/* Heading */
+  #heading{
+    background:#fff;
+    border-bottom:1px solid #CFCFCF;
+    width:100%;
+    float:left;
+  }
+  /* Nav */
+  @media only screen and (max-width: 480px) {
+    #heading .navContainer{
+      width:100%;
+      background:#000;
+      height:50px;
+      float:left;
+      border-top:1px solid #CFCFCF;
+    }
+      #heading .navContainer ul.nav{
+        width:60%;
+        margin:0 20%;
+      }
+        #heading .navContainer ul.nav li{
+          width:33.3%;
+          line-height: 50px;
+        }
+  }
+  @media only screen and (min-width: 480px) {
+    #heading .navContainer ul.nav{
+      float:right;
+      width:220px;
+      line-height:30px;
+    }
+      #heading .navContainer ul.nav li{
+        line-height: 50px;
+        margin:10px;
+      }
+  }
+    #heading .navContainer ul.nav{
+      list-style: none;
+    }
+      #heading .navContainer ul.nav li{
+        float:left;
+        color:#9E9E9E;
+      }
+  /* End Nav */
+/* End Heading */
+/* Logo */
+  .logo{
+    float:left;
+    margin:10px;
+  }
+    .logo .pinWheel{ 
+      width:49px;
+      height:47px;
+      float:left;
+      position: relative;
+    }
+      .logo .pinWheel > div{ 
+        width:20px;
+        height:48px;
+        position: absolute;
+        top:0;
+        left:14px;
+      }
+      .logo .pinWheel > div.second {
+        transform: rotate(30deg);
+        -webkit-transform: rotate(45deg);
+      }
+      .logo .pinWheel > div.third {
+        transform: rotate(30deg);
+        -webkit-transform: rotate(90deg);
+      }
+      .logo .pinWheel > div.fourth {
+        transform: rotate(30deg);
+        -webkit-transform: rotate(135deg);
+      }
+        .logo .pinWheel > div > div{ 
+          width:20px;
+          height:20px;
+          border-radius: 10px;
+          position: absolute;
+        }
+        .logo .pinWheel > div > div+div{ 
+          top:27px;
+        }
+        .logo .pinWheel > div.first div{ 
+          background:rgba(0,119,255,0.55);
+        }
+        .logo .pinWheel > div.second div{ 
+          background:rgba(98,0,255,0.55);
+        }
+        .logo .pinWheel > div.third div{ 
+          background:rgba(255,0,230,0.55);
+        }
+        .logo .pinWheel > div.fourth div{ 
+          background:rgba(255,0,77,0.55);
+        }
+    .logo p{
+      float:left;
+      margin:0 0 0 10px;
+      line-height: 50px;
+      font-size:19px;
+      color:#9E9E9E;
+      letter-spacing:4px;
+    }
+  /* Animation */
+    @-webkit-keyframes logo_spin{
+      0%{
+        -webkit-transform: rotate(0deg);
+      }
+      100%{
+        -webkit-transform: rotate(360deg);
+      }
+    }
+  /* End Animation */
+  /* Animation Assignment */
+    .logo .pinWheel.spin{ 
+      -webkit-animation: logo_spin 2s;
+    }
+  /* End Animation Assignment */
+/* End Logo */
+
+/* Main */
+#main{
+  width:100%;
+  float:left;
+}
