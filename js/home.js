@@ -111,17 +111,17 @@ $(function(){
       div.trigger('moduleloaded');
     });
   });
-  function template(el,arr) {
-    var self = el;
-    self.hide();
+  function template(self,arr) {
+    self.hide(); /* Hide the template element */
     for (i = 0;i < arr.length;i++) {
-      var div = self.clone(true).show();
+      var div = self.clone(true).show(); /* Clone the template and show it */
       /* Adapted from http://stackoverflow.com/questions/377961/efficient-javascript-string-replacement */
       str = div.html();
-      div.html(str.replace(/{{(\w*)}}/g,function(m,key){return arr[i].hasOwnProperty(key)?arr[i][key]:"";}));
-      div.appendTo(self.parent());
+      div
+        .html(str.replace(/{{(\w*)}}/g,function(m,key){return arr[i].hasOwnProperty(key)?arr[i][key]:"";}))
+        .appendTo(self.parent());
     }
-    self.remove();
+    self.remove(); /* Remove the template element */
   }
   $('div.section').on('moduleloaded',function(){
     $('div[template]').each(function(){
@@ -195,7 +195,7 @@ var portfolio = [{
     "client":"mIRC Corporation",
     "project":"mIRC Scripter",
     "date":"2012",
-    "role":"UI Look &amp; Feel Pitch",
+    "role":"UI/UX Pitch",
     "desc":"Current UI is old and dated, this is my take on it.",
     "tech":"ai",
     "imgMain":"ones/mirc-scripter-after.png"

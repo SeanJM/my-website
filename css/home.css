@@ -79,17 +79,47 @@ html{}
         position: relative;
         cursor: pointer;
       }
-        .moreInfo .more{
+      .moreInfo .indicator{
+        float: right;
+        width: 14px;
+        height: 14px;
+        margin: 10px 0 0 0;
+        border-radius: 7px;
+        background-image: -webkit-linear-gradient(bottom,#F2F2F2,#fff);
+        background-image: -moz-linear-gradient(bottom,#F2F2F2,#fff);
+        background-image: -o-linear-gradient(bottom,#F2F2F2,#fff);
+        background-image: -ms-linear-gradient(bottom,#F2F2F2,#fff);
+        background-image: linear-gradient(bottom,#F2F2F2,#fff);
+        -webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.5);
+      }
+        .moreInfo .indicator .arrow{
+          border:3px solid transparent;
+          border-top-color: #989898;
+          margin: 6px auto;
+          display: block;
+          width: 0;
+          height: 0;
+        }
+        .moreInfo .more-container{
           display: none;
           position: absolute;
-          top: 23px;
-          left: 10px;
-          width: 200px;
-          padding: 15px 20px 20px;
-          border: 1px solid #989898;
-          background: #fff;
+          top:16px;
+          left:-7px;
+          padding:20px 0 0 0;
         }
-          .moreInfo .more .content{
+        .moreInfo:hover .more-container{
+          display:block;
+          z-index: 100;
+        }
+        .moreInfo .more{
+          width: 220px;
+          padding: 15px 20px 20px;
+          background: #fff;
+          float: left;
+          box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+          .moreInfo .more .content {
             display: block;
             text-align: left;
             font-size: 14px;
@@ -152,10 +182,6 @@ html{}
               .moreInfo .more .tech li .chrome{
                 background-position: -623px -64px;
               }
-        .moreInfo:hover .more{
-          display:block;
-          z-index: 100;
-        }
       /* < More Info */
       /* Lightbox */
       .shadowbox {
@@ -560,7 +586,7 @@ html{}
     }
       #portfolio .col{
         width:29.5%;
-        margin-bottom:30px;
+        margin-bottom:25px;
         float:left;
       }
       #portfolio .col:nth-child(3n+1){
@@ -577,7 +603,7 @@ html{}
         #portfolio .col .project-title{
           width:100%;
           float:left;
-          margin:0 0 16px;
+          margin:0 0 10px;
         }
           #portfolio .col .project-title h3.project-client{
             float:left;
@@ -585,32 +611,6 @@ html{}
             font-weight: 400;
             color:#7E7E7E;
             line-height: 30px;
-          }
-          #portfolio .col .project-title h2.date{
-            color:#989898;
-            float:right;
-            font-size: 15px;
-            line-height: 30px;
-            font-weight: 400;
-          }
-          #portfolio .col .project-title h4.role{
-            float: right;
-            clear: right;
-            font-weight: 300;
-            color: #989898;
-            font-size: 15px;
-            background: #F3F3F3;
-            border:1px solid #D6D6D6;
-            padding:0 7px;
-            line-height: 23px;
-          }
-          #portfolio .col .project-title h3.project-name{
-            float:left;
-            font-weight: 300;
-            clear:left;
-            font-size: 15px;
-            color:#989898;
-            line-height: 23px;
           }
           #portfolio hr{
             width:100%;
@@ -653,7 +653,7 @@ html{}
               #portfolio .col .album .imgNav{
                 width:auto;
                 height:20px;
-                margin:12px auto 0;
+                margin:15px auto 0;
                 clear:both;
                 display: inline-block;
               }
@@ -675,17 +675,61 @@ html{}
                 }
           /* End Album */
         #portfolio .moreInfo .more{
-          top: 43px;
+          top: 23px;
         }
-        #portfolio .col p.description{
-          color:#989898;
-          font-weight: 300;
-          font-size: 15px;
-          margin:12px 0 0 0;
-          height:60px;
-          float:left;
+          #portfolio .moreInfo .more .project{
+            border-bottom:1px solid #E5E5E5;
+            float: left;
+            width: 100%;
+            padding:0 0 14px 0;
+            margin:0 0 14px 0;
+          }
+          #portfolio .moreInfo .more .project .label{
+            float: left;
+            width: 30%;
+            color: #BCBCBC;
+          }
+          #portfolio .moreInfo .more .project .value{
+            float: right;
+            width: 70%;
+            text-align: right;
+          }
+          #portfolio .moreInfo .more .date {
+            float: left;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+            color: #989898;
+            width: 100%;
+            margin:4px 0 0;
+          }
+          #portfolio .moreInfo .more .project-name {
+            float: left;
+            clear: left;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+            color: #989898;
+          }
+          #portfolio .moreInfo .more .role{
+            float: left;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 22px;
+            color: #989898;
+            margin:4px 0 0;
+          }
+        #portfolio .col p.description {
+          float: left;
           clear: both;
+          height: 60px;
+          margin: 12px 0 0 0;
           text-align: justify;
+          font-size: 15px;
+          font-weight: 300;
+          color: #989898;
         }
     /* ------ End Portfolio ----- */
     /* -------- Workflow -------- */
