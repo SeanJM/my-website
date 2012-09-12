@@ -86,7 +86,7 @@ function shadowConstruct(callback) {
       /*console.log(e.which);*/
       if (e.which == 39) { lightboxNext(1); }
       if (e.which == 37) { lightboxNext(-1); }
-      if (e.which == 27) { shadowbox.remove(); }
+      if (e.which == 27) { shadowbox.hide(); }
     });
     shadowbox.find('.close').on('click',function(){
       shadowbox.hide();
@@ -113,6 +113,7 @@ function loadImage(el){
     shadowbox.find('.loader').hide();
     $(this).fadeIn(600).attr('shadowindex',shadowindex); //Fade it in when loaded
     shadowbox.find('.count .current').text((parseInt(shadowindex) + 1));
+    shadowbox.find('.client').text(el.parents('.col').find('.project-client').text());
   })
   .each(function() {
     //Cache fix for browsers that don't trigger .load()
