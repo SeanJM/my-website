@@ -202,10 +202,10 @@ var portfolio = [{
   },
   {
     "client":"Personal",
-    "project":"Beef Finder",
+    "project":"Beer Finder",
     "date":"2012",
     "role":"UI Look &amp; Feel",
-    "desc":"This is my take on a location beer finder.",
+    "desc":"This is my take on a location based beer finder, the original idea was made by Nick Latreille over at <a href='http://www.swellgraphics.ca'>Swell Graphics</a>.",
     "tech":"ai",
     "imgMain":"ones/beer-finder.png"
   },
