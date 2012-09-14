@@ -36,6 +36,25 @@ html{}
       background-repeat:no-repeat;
     }
   /* ---------- Aggredated ---------- */
+  #portfolio .col .album .imgNav .btn,
+  #quotes .btn{
+    width:20px;
+    height:20px;
+    float: left;
+  }
+  #portfolio .col .album .imgNav .btn .circle,
+  #quotes .btn .circle{
+    width:8px;
+    height:8px;
+    background: #D5D5D5;
+    border-radius: 4px;
+    margin:6px auto;
+    box-shadow:inset 0 1px 3px rgba(0,0,0,0.6);
+  }
+  #portfolio .col .album .imgNav .btn.active .circle,
+  #quotes .btn.active .circle{
+    background: #0098FF;
+  }
   .icon.range{
     display: inline-block;
     float: none;
@@ -798,7 +817,7 @@ html{}
     }
       #software .col{
         width:33%;
-        height:200px;
+        height:131px;
         float:left;
         margin: 20px 0;
       }
@@ -912,6 +931,47 @@ html{}
           line-height: 26px;
         }
     /* ----- End Education ------ */
+    /* ---------- Quotes ----------- */
+    #quotes {
+      background:#fff;
+      margin-top:30px;
+      margin-bottom:30px;
+      position: relative;
+    }
+    #quotes .quote-slide{
+      height:400px;
+    }
+    #quotes .quote-container{
+      position: relative;
+      float: left;
+      height:360px;
+    }
+    #quotes p.quote{
+      float: left;
+      clear: both;
+      width: 90%;
+      margin-right: 5%;
+      margin-left: 5%;
+      font-size: 21px;
+      font-weight: 300;
+      color: #686868;
+      position: relative;
+    }
+    #quotes p.client{
+      font-size:18px;
+      font-weight: 300;
+      color: #989898;
+      position: absolute;
+      bottom:30px;
+      right:10px;
+    }
+    #quotes .quote-nav{
+      position: absolute;
+      bottom:30px;
+      left:40px;
+      height:30px;
+    }
+    /* -------- End Job --------- */
     /* ---------- Job ----------- */
     #job {
       background:#fff;

@@ -112,9 +112,8 @@ $(function(){
     });
   });
   function template(self,arr) {
-    self.hide(); /* Hide the template element */
     for (i = 0;i < arr.length;i++) {
-      var div = self.clone(true).show(); /* Clone the template and show it */
+      var div = self.clone(true); /* Clone the template and show it */
       /* Adapted from http://stackoverflow.com/questions/377961/efficient-javascript-string-replacement */
       str = div.html();
       div
@@ -136,6 +135,29 @@ $(function(){
       makeImgTag($(this));
     });
   });
+  function quoteView(n) {
+    $('#quotes .quote-container.active').removeClass('active').hide();
+    $('#quotes .quote-nav .btn.active').removeClass('active');
+    $('#quotes .quote-container[quoteIndex="' + n + '"]').addClass('active').show();
+    $('#quotes .quote-nav .btn[quoteIndex="' + n + '"]').addClass('active');
+  }
+  function quote() {
+    template($('#quotes .quote-container'),quotes);
+    var i = 0;
+    var quoteNav = $('#quotes .quote-nav');
+    $('#quotes .quote-container').each(function(){
+      var qh = ($(this).height() / 2) - ($(this).find('p.quote').height() / 2);
+      i++;
+      $(this).attr('quoteIndex',i).hide().find('p.quote').css('top',qh);
+      var btn = $('<div class="btn" quoteIndex="' + i + '"><div class="circle"></div></div>');
+      btn.on('click',function(){ quoteView($(this).attr('quoteIndex')); });
+      quoteNav.append(btn);
+    });
+    quoteView(1);
+    var qnx = ($('#quotes').width() / 2) - (quoteNav.width() / 2);
+    quoteNav.css('margin-left',qnx);
+  }
+  quote();
 });
 var portfolio = [{
     "client":"Pixologic",
@@ -217,4 +239,20 @@ var portfolio = [{
     "desc":"A functional chrome extension for oDesk (work in progress)",
     "tech":"ai,css3,jq,html5,chrome",
     "imgMain":"ones/odesk.png"
+  }];
+  var quotes = [{
+    "quote":"Sean is a very talented designer and the utmost professional. He took our product from some basic wireframes and helped us turn it into a world class design. He is also very consistent, communicates effectively, and is a collaborative team member. I would recommend him to anyone, and I hope to work with him again in the future.",
+    "client":"Socially Active"
+  },
+  {
+    "quote":"Sean is a very creative professional with very strong work ethic and someone who has always come through for us. His approach to projects is very refreshing and keeps us in control at all times.  Sean has become our de-facto designer for all design projects and we look forward to our next project with him soon.",
+    "client":"Team Venti"
+  },
+  {
+    "quote":"Sean is really good at taking a client's ideas and turning them into a good looking and functional design.  Be it software interfaces or web design he did it all very well.",
+    "client":"SCD Lifestyle"
+  },
+  {
+    "quote":"It was a pleasure working with Sean, he is a true professional. Sean was able to understand my request and complete the necessary tasks on-time and within my budget. I highly recommend Sean and would be happy to work with him again in the future.",
+    "client":"QR Wild"
   }];
