@@ -111,7 +111,7 @@ $(function(){
       div.trigger('moduleloaded');
     });
   });
-  function template(self,arr) {
+  function template(self,arr,callback) {
     for (i = 0;i < arr.length;i++) {
       var div = self.clone(true); /* Clone the template and show it */
       /* Adapted from http://stackoverflow.com/questions/377961/efficient-javascript-string-replacement */
@@ -121,6 +121,7 @@ $(function(){
         .appendTo(self.parent());
     }
     self.remove(); /* Remove the template element */
+    if (typeof callback == 'function') { callback(); }
   }
   $('div.section').on('moduleloaded',function(){
     $('div[template]').each(function(){
@@ -142,20 +143,22 @@ $(function(){
     $('#quotes .quote-nav .btn[quoteIndex="' + n + '"]').addClass('active');
   }
   function quote() {
-    template($('#quotes .quote-container'),quotes);
-    var i = 0;
-    var quoteNav = $('#quotes .quote-nav');
-    $('#quotes .quote-container').each(function(){
-      var qh = ($(this).height() / 2) - ($(this).find('p.quote').height() / 2);
-      i++;
-      $(this).attr('quoteIndex',i).hide().find('p.quote').css('top',qh);
-      var btn = $('<div class="btn" quoteIndex="' + i + '"><div class="circle"></div></div>');
-      btn.on('click',function(){ quoteView($(this).attr('quoteIndex')); });
-      quoteNav.append(btn);
+    template($('#quotes .quote-container'),quotes,function(){
+      var i = 0;
+      console.log(i);
+      var quoteNav = $('#quotes .quote-nav');
+      $('#quotes .quote-container').each(function(){
+        var qh = ($(this).height() / 2) - ($(this).find('p.quote').height() / 2);
+        i++;
+        $(this).attr('quoteIndex',i).hide().find('p.quote').css('top',qh);
+        var btn = $('<div class="btn" quoteIndex="' + i + '"><div class="circle"></div></div>');
+        btn.on('click',function(){ quoteView($(this).attr('quoteIndex')); });
+        quoteNav.append(btn);
+      });
+      quoteView(1);
+      var qnx = ($('#quotes').width() / 2) - (quoteNav.width() / 2);
+      quoteNav.css('margin-left',qnx);
     });
-    quoteView(1);
-    var qnx = ($('#quotes').width() / 2) - (quoteNav.width() / 2);
-    quoteNav.css('margin-left',qnx);
   }
   quote();
 });
