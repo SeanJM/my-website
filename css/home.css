@@ -814,6 +814,8 @@ html{}
     #software{
       margin-top:30px;
       background:#fff;
+      padding-top:30px;
+      padding-bottom:30px;
     }
       #software .col{
         width:33%;
@@ -985,6 +987,7 @@ html{}
       margin-top:30px;
       margin-bottom:30px;
       padding-bottom: 30px;
+      padding-top:46px;
     }
       #job .introduction p:last-child{
         margin-bottom:20px;
