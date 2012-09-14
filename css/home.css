@@ -956,6 +956,14 @@ html{}
       color: #686868;
       position: relative;
     }
+    #quotes .character{
+      font-size: 60px;
+      position: absolute;
+      font-weight:700;
+      left:-30px;
+      top:-24px;
+      color: #D5D5D5;
+    }
     #quotes p.client{
       font-size:18px;
       font-weight: 300;
