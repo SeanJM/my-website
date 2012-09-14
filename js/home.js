@@ -137,9 +137,12 @@ $(function(){
     });
   });
   function quoteView(n) {
-    $('#quotes .quote-container.active').removeClass('active').hide();
+    var active = $('#quotes .quote-container.active');
+    var delay = 550;
+    function showQuote() { $('#quotes .quote-container[quoteIndex="' + n + '"]').addClass('active').fadeIn(delay); }
+    if (active.size() <= 0) { showQuote(); }
+    active.removeClass('active').fadeOut(delay,function(){showQuote();});
     $('#quotes .quote-nav .btn.active').removeClass('active');
-    $('#quotes .quote-container[quoteIndex="' + n + '"]').addClass('active').show();
     $('#quotes .quote-nav .btn[quoteIndex="' + n + '"]').addClass('active');
   }
   function quote() {
