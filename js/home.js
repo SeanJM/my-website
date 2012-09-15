@@ -112,6 +112,7 @@ $(function(){
     });
   });
   function template(self,arr,callback) {
+    var t = arr.length;
     for (i = 0;i < arr.length;i++) {
       var div = self.clone(true); /* Clone the template and show it */
       /* Adapted from http://stackoverflow.com/questions/377961/efficient-javascript-string-replacement */
@@ -121,19 +122,22 @@ $(function(){
         .appendTo(self.parent());
     }
     self.remove(); /* Remove the template element */
-    if (typeof callback == 'function') { callback(); }
+    if (typeof callback == 'function') { 
+      callback(); 
+    }
   }
   $('div.section').on('moduleloaded',function(){
     $('div[template]').each(function(){
       if ($(this).attr('template') == 'portfolio') {
-        template($(this),portfolio);
+        template($(this),portfolio,function(){
+          $('div[tech]').each(function() {
+            makeTechTag($(this));
+          });
+          $('img[imglink]').each(function(){
+            makeImgTag($(this));
+          });
+        });
       }
-    });
-    $('div[tech]').each(function() {
-      makeTechTag($(this));
-    });
-    $('img[imglink]').each(function(){
-      makeImgTag($(this));
     });
   });
   function quoteView(n) {
@@ -148,9 +152,9 @@ $(function(){
   function quote() {
     template($('#quotes .quote-container'),quotes,function(){
       var i = 0;
-      console.log(i);
       var quoteNav = $('#quotes .quote-nav');
       $('#quotes .quote-container').each(function(){
+        console.log($(this).find('p.quote').height());
         var qh = ($(this).height() / 2) - ($(this).find('p.quote').height() / 2);
         i++;
         $(this).attr('quoteIndex',i).hide().find('p.quote').css('top',qh);
@@ -163,7 +167,7 @@ $(function(){
       quoteNav.css('margin-left',qnx);
     });
   }
-  $(document).ready(function(){ quote(); });
+  $('document').ready(function(){ quote(); });
 });
 var portfolio = [{
     "client":"Pixologic",
