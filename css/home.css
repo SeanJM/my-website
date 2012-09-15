@@ -597,7 +597,7 @@ html{}
       #overview .introduction p:first-child{
         margin-top:36px;
         text-align: center;
-        font-size: 16px;
+        font-size: 18px;
       }
         #overview .moreInfo .more{
           top:16px;
@@ -940,12 +940,12 @@ html{}
       position: relative;
     }
     #quotes .quote-slide{
-      height:400px;
+      height:340px;
     }
     #quotes .quote-container{
       position: relative;
       float: left;
-      height:360px;
+      height:320px;
     }
     #quotes p.quote{
       float: left;
@@ -962,8 +962,8 @@ html{}
       font-size: 60px;
       position: absolute;
       font-weight:700;
-      left:-30px;
-      top:-24px;
+      left:-38px;
+      top:-26px;
       color: #D5D5D5;
     }
     #quotes p.client{
@@ -971,12 +971,12 @@ html{}
       font-weight: 300;
       color: #989898;
       position: absolute;
-      bottom:30px;
+      bottom:40px;
       right:45px;
     }
     #quotes .quote-nav{
       position: absolute;
-      bottom:30px;
+      bottom:60px;
       left:40px;
       height:30px;
     }

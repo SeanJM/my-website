@@ -163,7 +163,7 @@ $(function(){
       quoteNav.css('margin-left',qnx);
     });
   }
-  quote();
+  $(document).ready(function(){ quote(); });
 });
 var portfolio = [{
     "client":"Pixologic",
