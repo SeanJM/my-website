@@ -994,3 +994,9 @@ html{}
       }
     /* -------- End Job --------- */
   /* ---------- End Home ----------- */
+  p#copy{
+    color:#989898;
+    font-size:14px;
+    margin:26px 0;
+    float: left
+  }
