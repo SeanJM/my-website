@@ -117,9 +117,8 @@ $(function(){
       var div = self.clone(true); /* Clone the template and show it */
       /* Adapted from http://stackoverflow.com/questions/377961/efficient-javascript-string-replacement */
       str = div.html();
-      div
-        .html(str.replace(/{{(\w*)}}/g,function(m,key){return arr[i].hasOwnProperty(key)?arr[i][key]:"";}))
-        .appendTo(self.parent());
+      div.html(str.replace(/{{(\w*)}}/g,function(m,key){return arr[i].hasOwnProperty(key)?arr[i][key]:"";}));
+      self.before(div);
     }
     self.remove(); /* Remove the template element */
     if (typeof callback == 'function') { 
@@ -140,6 +139,13 @@ $(function(){
       }
     });
   });
+  function index(el){
+    var i = 0;
+    el.each(function(){
+      i++;
+      $(this).attr('index',i);
+    });
+  }
   function quoteView(n) {
     var active = $('#quotes .quote-container.active');
     var delay = 550;
@@ -154,7 +160,6 @@ $(function(){
       var i = 0;
       var quoteNav = $('#quotes .quote-nav');
       $('#quotes .quote-container').each(function(){
-        console.log($(this).find('p.quote').height());
         var qh = ($(this).height() / 2) - ($(this).find('p.quote').height() / 2);
         i++;
         $(this).attr('quoteIndex',i).hide().find('p.quote').css('top',qh);
@@ -168,7 +173,29 @@ $(function(){
     });
   }
   $('document').ready(function(){ quote(); });
-  template($('#software div[template]'),experience);
+  function selectDescription(n){
+    var el = $('#software .description-container');
+    el.find('.description.active').removeClass('active').hide();
+    el.find('.description[index="' + n + '"]').addClass('active').show();
+  }
+  template($('#software div[template].col'),experience,function(){
+    var el = $('#software .col');
+    index(el);
+    el.each(function(){
+      $(this).on('click',function() { 
+        selectDescription($(this).attr('index'));
+      });
+    });
+  });
+  template($('#software .description-container div[template]'),experience,function(){
+    var marie = $('#software .description-container .description');
+    index(marie);
+    marie.each(function(){
+      var descY = ($(this).parent().height() / 2) - ($(this).find('p').height() / 2);
+      $(this).hide().find('p').css('top',descY);
+    });
+    selectDescription(1);
+  });
 });
 var portfolio = [{
     "client":"Pixologic",
@@ -270,25 +297,31 @@ var portfolio = [{
   var experience = [{
     "software":"Illustrator",
     "icon":"ai",
-    "experience":"three"
+    "experience":"three",
+    "description":"I can do anything in illustrator. I have been creating vector graphics for over 5 years. It is one of my favorite pieces of software."
   },{
     "software":"Photoshop",
     "icon":"ps",
-    "experience":"three"
+    "experience":"three",
+    "description":"I have been using photoshop for 13 years now. It is my goto app for photo manipulation and creating textures."
   },{
     "software":"jQuery",
     "icon":"jq",
-    "experience":"one"
+    "experience":"one",
+    "description":"I have been using jQuery for almost three years now. I started using it for it's powerful animations and transitions. I consider myself a novice and without Stackoverflow, this website would not be here."
   },{
     "software":"HTML 5",
     "icon":"html",
-    "experience":"three"
+    "experience":"three",
+    "description":"I love the new features of HTML 5. I can code anything you need in it. My markup is clean and semantic and will always pass the validator, often on a first run."
   },{
     "software":"CSS 3",
     "icon":"css",
-    "experience":"three"
+    "experience":"three",
+    "description":"This is my favorite part of web design, getting into the CSS. I tend to favor scope when I code CSS and I like ID's to delineate scope and keep my CSS selectors clean and concise."
   },{
     "software":"Git",
     "icon":"git",
-    "experience":"two"
+    "experience":"two",
+    "description":"I'm no stranger to version control. I was first introduced to Git a few years ago on the MyPaint project. I use it regularly today on projects and on this website. The source is completely public, so, if you want, take a look."
   }];

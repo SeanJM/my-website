@@ -669,6 +669,7 @@ html{}
                   left:0;
                   width:245px;
                   overflow: hidden;
+                  cursor: pointer;
                 }
                 #portfolio .col .album .container .mask.active{
                   z-index: 1;
@@ -814,14 +815,18 @@ html{}
     #software{
       margin-top:30px;
       background:#fff;
-      padding-top:40px;
-      padding-bottom:40px;
+      padding-top:20px;
+      padding-bottom:0px;
+      padding-left:0;
+      padding-right:0;
+      width:100%;
     }
       #software .col{
         width:16.5%;
         height:131px;
         float:left;
         margin: 20px 0;
+        cursor: pointer;
       }
       /* Icons */      
         #software .col .icon{
@@ -889,6 +894,45 @@ html{}
           text-align: justify;
           color:#989898;
         }
+      #software .description-container {
+        float: left;
+        height:180px;
+        position: relative;
+        width:100%;
+        background: #0098FF;
+        margin:18px 0 0;
+      }
+        #software .description-container .description{
+          position: relative;
+        }
+          #software .description-container .description .arrow{
+            border:17px solid transparent;
+            border-top-color:#fff;
+            position: absolute;
+          }
+          #software .description-container .description .arrow.ai{
+            left:60px;
+          }
+          #software .description-container .description .arrow.ps{
+            left:217px;
+          }
+          #software .description-container .description .arrow.jq{
+            left:371px;
+          }
+          #software .description-container .description .arrow.html{
+            left:531px;
+          }
+          #software .description-container .description .arrow.css{
+            left:687px;
+          }
+          #software .description-container .description .arrow.git{
+            left:843px;
+          }
+          #software .description-container .description p{
+            position: absolute;
+            padding:0 50px;
+            color:#fff;
+          }
     /* ------ End Software ------ */
     #experience{}
     /* ---- End Experience ------ */
