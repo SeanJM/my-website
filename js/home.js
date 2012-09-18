@@ -175,8 +175,30 @@ $(function(){
   $('document').ready(function(){ quote(); });
   function selectDescription(n){
     var el = $('#software .description-container');
-    el.find('.description.active').removeClass('active').hide();
-    el.find('.description[index="' + n + '"]').addClass('active').show();
+    var desc = el.find('.description[index="' + n + '"]');
+    var software = desc.find('p').attr('class');
+    var arrow = el.find('.arrow');
+    var arrowTransition = 300;
+    arrow.attr('class','arrow ' + software);
+    function show(){
+      var active = el.find('.description.active');
+      if (active.size()) {
+        el.find('.description.active').removeClass('active').fadeOut(300,function() { 
+            desc.addClass('active').fadeIn(300);
+        });
+      }
+      else { desc.addClass('active').show(); }
+    }
+    function arrowAnim(a) { 
+      arrow.animate(a,arrowTransition);
+      show(); 
+    }
+    if (software == 'ai') { arrowAnim({'left':'68px'}); }
+    if (software == 'ps'){ arrowAnim({'left':'225px'}); }
+    if (software == 'jq'){ arrowAnim({'left':'379px'}); }
+    if (software == 'html'){ arrowAnim({'left':'539px'}); }
+    if (software == 'css'){ arrowAnim({'left':'695px'}); }
+    if (software == 'git'){ arrowAnim({'left':'852px'}); }
   }
   template($('#software div[template].col'),experience,function(){
     var el = $('#software .col');

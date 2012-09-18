@@ -896,42 +896,30 @@ html{}
         }
       #software .description-container {
         float: left;
-        height:180px;
+        height:207px;
         position: relative;
         width:100%;
         background: #0098FF;
         margin:18px 0 0;
       }
-        #software .description-container .description{
-          position: relative;
-        }
-          #software .description-container .description .arrow{
-            border:17px solid transparent;
+        #software .description-container .description{ position: relative; }
+          #software .description-container .arrow{
+            border:11px solid transparent;
             border-top-color:#fff;
             position: absolute;
           }
-          #software .description-container .description .arrow.ai{
-            left:60px;
-          }
-          #software .description-container .description .arrow.ps{
-            left:217px;
-          }
-          #software .description-container .description .arrow.jq{
-            left:371px;
-          }
-          #software .description-container .description .arrow.html{
-            left:531px;
-          }
-          #software .description-container .description .arrow.css{
-            left:687px;
-          }
-          #software .description-container .description .arrow.git{
-            left:843px;
-          }
+          #software .description-container .arrow.ai{ left:68px; }
+          #software .description-container .arrow.ps{ left:225px; }
+          #software .description-container .arrow.jq{ left:379px; }
+          #software .description-container .arrow.html{ left:539px; }
+          #software .description-container .arrow.css{ left:695px; }
+          #software .description-container .arrow.git{ left:852px; }
           #software .description-container .description p{
             position: absolute;
-            padding:0 50px;
-            color:#fff;
+            padding: 0 66px;
+            font-size: 20px;
+            font-weight: 300;
+            color: #fff;
           }
     /* ------ End Software ------ */
     #experience{}
@@ -1061,6 +1049,7 @@ html{}
   p#copy{
     color:#989898;
     font-size:14px;
-    margin:26px 0;
-    float: left
+    float: left;
+    width: 100%;
+    line-height: 60px;
   }
