@@ -168,6 +168,7 @@ $(function(){
     });
   }
   $('document').ready(function(){ quote(); });
+  template($('#software div[template]'),experience);
 });
 var portfolio = [{
     "client":"Pixologic",
@@ -265,4 +266,29 @@ var portfolio = [{
   {
     "quote":"It was a pleasure working with Sean, he is a true professional. Sean was able to understand my request and complete the necessary tasks on-time and within my budget. I highly recommend Sean and would be happy to work with him again in the future.",
     "client":"QR Wild"
+  }];
+  var experience = [{
+    "software":"Illustrator",
+    "icon":"ai",
+    "experience":"three"
+  },{
+    "software":"Photoshop",
+    "icon":"ps",
+    "experience":"three"
+  },{
+    "software":"jQuery",
+    "icon":"jq",
+    "experience":"one"
+  },{
+    "software":"HTML 5",
+    "icon":"html",
+    "experience":"three"
+  },{
+    "software":"CSS 3",
+    "icon":"css",
+    "experience":"three"
+  },{
+    "software":"Git",
+    "icon":"git",
+    "experience":"two"
   }];

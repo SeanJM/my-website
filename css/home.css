@@ -814,11 +814,11 @@ html{}
     #software{
       margin-top:30px;
       background:#fff;
-      padding-top:30px;
-      padding-bottom:30px;
+      padding-top:40px;
+      padding-bottom:40px;
     }
       #software .col{
-        width:33%;
+        width:16.5%;
         height:131px;
         float:left;
         margin: 20px 0;
@@ -856,13 +856,33 @@ html{}
       /* End Icons */
         #software .col h3{
           text-align: center;
-          font-size: 20px;
+          font-size: 14px;
           font-weight: 400;
           line-height: 50px;
           color: #7E7E7E;
         }
         #software .col .experience{
+          width:50%;
+          margin:0 25%;
+          height:3px;
+          background:#D5D5D5;
+          border-radius: 3px;
+          overflow: hidden;
         }
+          #software .col .experience .experienceBar{
+            width:100%;
+            background:#0098FF;
+            height:100%;
+          }
+          #software .col .experience .experienceBar.one{
+            width:33%;
+          }
+          #software .col .experience .experienceBar.two{
+            width:66%;
+          }
+          #software .col .experience .experienceBar.three{
+            width:100%;
+          }
         #software .col p{
           width:90%;
           margin:0 0 0 5%;
