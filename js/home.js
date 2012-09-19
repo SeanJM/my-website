@@ -349,3 +349,19 @@ var portfolio = [{
     "experience":"two",
     "description":"I'm no stranger to version control. I was first introduced to <a href='http://git-scm.com/'>Git</a> a few years ago. I use it regularly today. If you want proof, the source for my site is available <a href='https://github.com/SeanJM/my-website'>here</a>."
   }];
+  var contact = [{
+    "method":"email",
+  },{
+    "method":"skype",
+  },{
+    "method":"twitter",
+  },{
+    "method":"linkedin"
+  }];
+  var platforms = [{
+    "device":"tablet",
+  },{
+    "device":"desktop",
+  },{
+    "device":"mobile"
+  }];
