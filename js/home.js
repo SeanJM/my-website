@@ -332,7 +332,7 @@ var portfolio = [{
     "software":"jQuery",
     "icon":"jq",
     "experience":"one",
-    "description":"I have been using jQuery for almost three years now. I started using it for it's powerful animations and transitions. I consider myself a novice and without Stackoverflow, this website would not be here."
+    "description":"I have been using jQuery for almost three years now. I started using it for it's powerful animations and transitions. At my core, I am designer and without Stackoverflow, this website would not be here."
   },{
     "software":"HTML 5",
     "icon":"html",

@@ -863,12 +863,12 @@ html{}
           text-align: center;
           font-size: 14px;
           font-weight: 400;
-          line-height: 50px;
+          line-height: 40px;
           color: #7E7E7E;
         }
         #software .col .experience{
           width:50%;
-          margin:0 25%;
+          margin:5px 25%;
           height:3px;
           background:#D5D5D5;
           border-radius: 3px;
@@ -938,7 +938,7 @@ html{}
           #software .description-container .description p{
             position: absolute;
             padding: 0 66px;
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 300;
             color: #fff;
           }
