@@ -322,7 +322,7 @@ var portfolio = [{
     "software":"Illustrator",
     "icon":"ai",
     "experience":"three",
-    "description":"I can do anything in <a href='http://www.adobe.com/products/illustrator.html'>illustrator</a>. I have been creating <a href='http://en.wikipedia.org/wiki/Vector_graphics'>vector graphics</a> for over 5 years. It is one of my favorite pieces of software."
+    "description":"I love <a href='http://www.adobe.com/products/illustrator.html'>illustrator</a>, vector changed everything about how I work. I have been creating <a href='http://en.wikipedia.org/wiki/Vector_graphics'>vector graphics</a> for over 5 years."
   },{
     "software":"Photoshop",
     "icon":"ps",
