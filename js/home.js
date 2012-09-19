@@ -1,3 +1,5 @@
+var cssAnim = true;
+if ($('html').hasClass('no-cssanimations')) { cssAnim = false; }
 function imgLink(link){
   if (link.indexOf('.png') >= 0) {
     var img = link.split(',');
@@ -190,8 +192,8 @@ $(function(){
       else { desc.addClass('active').show(); }
     }
     function arrowAnim(a) { 
-      arrow.animate(a,arrowTransition);
-      show(); 
+      if (cssAnim == false) { arrow.animate(a,arrowTransition); }
+      show();
     }
     if (software == 'ai') { arrowAnim({'left':'68px'}); }
     if (software == 'ps'){ arrowAnim({'left':'225px'}); }
