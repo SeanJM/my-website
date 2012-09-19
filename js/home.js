@@ -322,30 +322,30 @@ var portfolio = [{
     "software":"Illustrator",
     "icon":"ai",
     "experience":"three",
-    "description":"I can do anything in illustrator. I have been creating vector graphics for over 5 years. It is one of my favorite pieces of software."
+    "description":"I can do anything in <a href='http://www.adobe.com/products/illustrator.html'>illustrator</a>. I have been creating <a href='http://en.wikipedia.org/wiki/Vector_graphics'>vector graphics</a> for over 5 years. It is one of my favorite pieces of software."
   },{
     "software":"Photoshop",
     "icon":"ps",
     "experience":"three",
-    "description":"I have been using photoshop for 13 years now. It is my goto app for photo manipulation and creating textures."
+    "description":"I have been using <a href='http://www.adobe.com/products/photoshop.html'>Photoshop</a> for 13 years now. It is my goto app for photo manipulation and creating textures."
   },{
     "software":"jQuery",
     "icon":"jq",
     "experience":"one",
-    "description":"I have been using jQuery for almost three years now. I started using it for it's powerful animations and transitions. At my core, I am designer and without Stackoverflow, this website would not be here."
+    "description":"I have been using <a href='http://jquery.com/'>jQuery</a> for almost three years now. I started using it for it's powerful animations and transitions. At my core, I am designer and without <a href='http://stackoverflow.com/'>stackoverflow</a>, this website would not be here."
   },{
     "software":"HTML 5",
     "icon":"html",
     "experience":"three",
-    "description":"I love the new features of HTML 5. I can code anything you need in it. My markup is clean and semantic and will always pass the validator, often on a first run."
+    "description":"I love the new features of <a href='http://www.w3.org/html/logo/'>HTML 5</a>. I can code anything you need in it. My markup is clean and semantic and will always pass the <a href='http://validator.w3.org/'>validator</a>, often on a first run."
   },{
     "software":"CSS 3",
     "icon":"css",
     "experience":"three",
-    "description":"This is my favorite part of web design, getting into the CSS. I tend to favor scope when I code CSS and I like ID's to delineate scope and keep my CSS selectors clean and concise."
+    "description":"This is my favorite part of web design, getting into the CSS. I tend to favor scope when I code CSS and use ID's to delineate those scopes. I keep my CSS as clean, light and concise as possible."
   },{
     "software":"Git",
     "icon":"git",
     "experience":"two",
-    "description":"I'm no stranger to version control. I was first introduced to Git a few years ago on the MyPaint project. I use it regularly today on projects and on this website. The source is completely public, so, if you want, take a look."
+    "description":"I'm no stranger to version control. I was first introduced to <a href='http://git-scm.com/'>Git</a> a few years ago. I use it regularly today. If you want proof, the source for my site is available <a href='https://github.com/SeanJM/my-website'>here</a>."
   }];
