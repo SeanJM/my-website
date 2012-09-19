@@ -385,39 +385,12 @@ html{}
       float: left;
       height:50px;
     }
-    #fixed-header .dropdown{
-      margin:10px 0 0 10px;
+    #fixed-header ul{
+      margin:5px 0 0 5px;
     }
-      #fixed-header .dropdown div {
-        background: #FFF;
-        float:left;
-        width:100%;
-        height: 30px;
-      }
-      #fixed-header .dropdown:hover div{
-      }
-      #fixed-header .dropdown ul{
-        display:none;
-        border-top: 1px solid #fff;
-      }
-      li.contact:hover {
-        background:#4FB2FF;
-      }
-      #fixed-header .dropdown p {
-        float:left;
-        line-height: 30px;
-        padding:0 0 0 10px;
-        font-size: 14px;
-        color:#0098FF;
-      }
-      #fixed-header .dropdown p:after {
-        content:"";
-        border:4px solid transparent;
-        border-top-color: #0098FF;
-        position: relative;
-        top: 12px;
-        right: -14px;
-      }
+    li.contact:hover {
+      background:#4FB2FF;
+    }
      /* .contact.email:hover .sprite{
         background-position: -594px -82px;
       }
@@ -491,6 +464,7 @@ html{}
           padding:5px;
           background: #0098FF;
           cursor: pointer;
+          list-style: none;
         }
         #contact-links ul li{
           border:1px solid #54BBFF;
@@ -520,21 +494,21 @@ html{}
           border-top:1px solid #fff;
         }
         .contact .sprite{
-          width: 38px;
-          height: 38px;
+          width: 30px;
+          height: 30px;
           float: left;  
         }
         .contact.email .sprite{
-          background-position: -632px -82px;
+          background-position: -635px -85px;
         }
         .contact.skype .sprite{
-          background-position: -632px -120px;
+          background-position: -636px -124px;
         }
         .contact.twitter .sprite{
-          background-position: -632px -158px;
+          background-position: -635px -161px;
         }
         .contact.linkedin .sprite{
-          background-position: -632px -196px;
+          background-position: -636px -200px;
         }
       #header h1.email {
         float: left;
