@@ -102,17 +102,6 @@ $(function(){
     }
     fixedHeader.css('top',i + 'px');
   });
-  $('script[class="section"]').each(function(){
-    var self = $(this);
-    var id = $(this).attr('id');
-    var url = './' + id + '.html';
-    var div = $('<div class="section" id="' + id + '"></div>');
-    self.before(div);
-    div.load(url,function(){
-      self.remove();
-      div.trigger('moduleloaded');
-    });
-  });
   function template(self,arr,callback) {
     var t = arr.length;
     for (i = 0;i < arr.length;i++) {
@@ -127,19 +116,51 @@ $(function(){
       callback(); 
     }
   }
+  $('div[module]').each(function(){
+    console.log('module');
+    var self = $(this);
+    var id = $(this).attr('id');
+    var url = './templates/' + id + '.html';
+    var div = $('<div class="section" id="' + id + '"></div>');
+    self.before(div);
+    div.load(url,function(){
+      self.remove();
+      div.trigger('moduleloaded');
+    });
+  });
   $('div.section').on('moduleloaded',function(){
-    $('div[template]').each(function(){
-      if ($(this).attr('template') == 'portfolio') {
-        template($(this),portfolio,function(){
-          $('div[tech]').each(function() {
-            makeTechTag($(this));
-          });
-          $('img[imglink]').each(function(){
-            makeImgTag($(this));
+    var id = $(this).attr('id');
+    if (id == 'portfolio') {
+      template($('#portfolio div[template]'),portfolio,function(){
+        $('div[tech]').each(function() {
+          makeTechTag($(this));
+        });
+        $('img[imglink]').each(function(){
+          makeImgTag($(this));
+        });
+      });
+    }
+    if (id == 'software') {
+      console.log(id);
+      template($('#software div[template].col'),experience,function(){
+        var el = $('#software .col');
+        index(el);
+        el.each(function(){
+          $(this).on('click',function() { 
+            selectDescription($(this).attr('index'));
           });
         });
-      }
-    });
+      });
+      template($('#software .description-container div[template]'),experience,function(){
+        var marie = $('#software .description-container .description');
+        index(marie);
+        marie.each(function(){
+          var descY = ($(this).parent().height() / 2) - ($(this).find('p').height() / 2);
+          $(this).hide().find('p').css('top',descY);
+        });
+        selectDescription(1);
+      });
+    }
   });
   function index(el){
     var i = 0;
@@ -202,24 +223,6 @@ $(function(){
     if (software == 'css'){ arrowAnim({'left':'695px'}); }
     if (software == 'git'){ arrowAnim({'left':'852px'}); }
   }
-  template($('#software div[template].col'),experience,function(){
-    var el = $('#software .col');
-    index(el);
-    el.each(function(){
-      $(this).on('click',function() { 
-        selectDescription($(this).attr('index'));
-      });
-    });
-  });
-  template($('#software .description-container div[template]'),experience,function(){
-    var marie = $('#software .description-container .description');
-    index(marie);
-    marie.each(function(){
-      var descY = ($(this).parent().height() / 2) - ($(this).find('p').height() / 2);
-      $(this).hide().find('p').css('top',descY);
-    });
-    selectDescription(1);
-  });
 });
 var portfolio = [{
     "client":"Pixologic",

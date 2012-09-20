@@ -99,7 +99,7 @@ function shadowConstruct(callback) {
 function loadImage(el){
   var shadowindex = el.attr('shadowindex');
   var shadowbox = $('#shadowbox');
-  if (shadowbox.is(':hidden')) { shadowbox.show(); }
+  if (shadowbox.is(':hidden')) { shadowbox.show(); shadowSize(shadowbox); }
   loadedImage = el.attr('href');
   /* Image Loading */
   /* Code Taken and Adapted from http://stackoverflow.com/questions/2392410/jquery-loading-images-with-complete-callback */
