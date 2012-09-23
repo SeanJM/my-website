@@ -468,15 +468,23 @@ html{}
         background-position: -299px -15px;
       }
     #header{
-      color:#989898;
       position: relative;
-      background:#0098FF;
-      height:400px;
-      border-bottom: 3px solid #0087E2;
+      padding:0;
+      width: 100%;
     }
+      #header .introduction{
+        background: #fff;
+      }
+      #header .hero{
+        background: #0098FF;
+        float: left;
+        width:100%;
+        height:400px;
+      }
       #header #contact-links{
-        margin:10px 0 0 -26px;
+        margin:20px 0 0 20px;
         width:99px;
+        float: left;
       }
         #header #contact-links ul {
           float: left;
@@ -534,6 +542,7 @@ html{}
         width: 232px;
         height: 77px;
         margin: 27px auto 10px;
+        background-position: -1px 0;
       }
       #header div.platforms {
         width: 562px;
@@ -927,65 +936,109 @@ html{}
     #experience{}
     /* ---- End Experience ------ */
     /* ------- Education -------- */
-    #education{}
-      #education .col{
-        width:49%;
-        margin:10px 0 0 0;
+    #education{
+      background: #fff;
+      margin-top:30px;
+      padding:0;
+      width:100%;
+    }
+      #education .edu-cols,
+      #education .edu-desc{
+        height:510px;
+        width:50%;
+      }
+      #education .edu-cols{
         float: left;
-        height:116px;
       }
-      #education .col.right{
-        float: right;
-      }
-      /* Education Icons */
-        #education .col .schoolIcon{
-          width:80px;
-          height:80px;
+        #education .edu-cols .col.active{}
+        #education .edu-cols .col{
           float: left;
-          margin:7px 20px 50px 10px;
+          width: 445px;
+          height: 100px;
+          padding: 40px 0 30px 30px;
+          background: #fff;
+          -webkit-transition: background-color 0.7s;
+          -moz-transition: background-color 0.7s;
+          -ms-transition: background-color 0.7s;
+          -o-transition: background-color 0.7s;
+          transition: background-color 0.7s;
+          cursor: pointer;
         }
-        /* Humber College */
-        #education .col .schoolIcon.hc{
-          background-position: 0 -250px;
-        }
-        /* International Academy of Design and Tech */
-        #education .col .schoolIcon.iadt{
-          background-position: -80px -250px;
-        }
-        /* UQO */
-        #education .col .schoolIcon.uqo{
-          background-position: -160px -250px;
-        }
-        /* Ecole Secondaire Public De La Salle */
-        #education .col .schoolIcon.dls{
-          background-position: -240px -250px;
-        }
-        #education .col h2{
-          font-size: 18px;
-          font-weight: 400;
-          color:#7E7E7E;
-        }
-        #education .col h2.date{
-          line-height: 18px;
-          margin:5px 0 5px 0;
-          font-size: 16px;
-          color:#7E7E7E;
-        }
-          #education .col h2.date .icon.range{
-            position: relative;
-            top: -1px;
+        /* Education Icons */
+          #education .col .schoolIcon{
+            float: left;
+            width: 80px;
+            height: 80px;
+            margin: 7px 20px 50px 10px;
           }
-        #education .col h3{
-          font-size: 16px;
-          font-weight: 400;
-          color:#989898;
+          /* Humber College */
+          #education .col .schoolIcon.hc{
+            background-position: 0 -250px;
+          }
+          /* International Academy of Design and Tech */
+          #education .col .schoolIcon.iadt{
+            background-position: -80px -250px;
+          }
+          /* UQO */
+          #education .col .schoolIcon.uqo{
+            background-position: -160px -250px;
+          }
+          /* Ecole Secondaire Public De La Salle */
+          #education .col .schoolIcon.dls{
+            background-position: -240px -250px;
+          }
+          #education .col h2{
+            font-size: 16px;
+            font-weight: 400;
+            color:#7E7E7E;
+            margin:6px 0 0 0;
+          }
+          #education .col h2.date{
+            line-height: 18px;
+            margin:5px 0 5px 0;
+            font-size: 16px;
+            color:#7E7E7E;
+          }
+            #education .col h2.date .icon.range{
+              position: relative;
+              top: -1px;
+            }
+          #education .col h3{
+            font-size: 14px;
+            font-weight: 400;
+            color:#989898;
+          }
+          #education .col h4{
+            font-size: 16px;
+            font-weight: 300;
+            color:#989898;
+            line-height: 26px;
+          }
+        #education .edu-desc{
+          float: right;
+          background-image: -webkit-linear-gradient(left,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 1%);
         }
-        #education .col h4{
-          font-size: 16px;
-          font-weight: 300;
-          color:#989898;
-          line-height: 26px;
-        }
+          #education .edu-desc .desc{
+            width:100%;
+            height:100%;
+            float: left;
+            position: relative;
+          }
+          #education .edu-desc .completion{
+            position: absolute;
+            color:#989898;
+            bottom:30px;
+            left:50px;
+            font-size: 12px;
+          }
+            #education .edu-desc .desc p{
+              position: relative;
+              margin:0 50px;
+              color:#989898;
+              font-size: 16px;
+              text-align: justify;
+              font-weight: 300;
+            }
     /* ----- End Education ------ */
     /* ---------- Quotes ----------- */
     #quotes {
@@ -1004,13 +1057,14 @@ html{}
     #quotes p.quote{
       float: left;
       clear: both;
+      position: relative;
       width: 90%;
       margin-right: 5%;
       margin-left: 5%;
-      font-size: 21px;
+      text-align: justify;
+      font-size: 19px;
       font-weight: 300;
       color: #686868;
-      position: relative;
     }
     #quotes .character{
       font-size: 60px;

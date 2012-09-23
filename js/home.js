@@ -117,7 +117,6 @@ $(function(){
     }
   }
   $('div[module]').each(function(){
-    console.log('module');
     var self = $(this);
     var id = $(this).attr('id');
     var url = './templates/' + id + '.html';
@@ -128,6 +127,10 @@ $(function(){
       div.trigger('moduleloaded');
     });
   });
+  function verticalCenter(n){
+    var descY = (n.parent().height() / 2) - (n.find('p').height() / 2);
+    n.hide().find('p').css('top',descY);
+  }
   $('div.section').on('moduleloaded',function(){
     var id = $(this).attr('id');
     if (id == 'portfolio') {
@@ -141,7 +144,6 @@ $(function(){
       });
     }
     if (id == 'software') {
-      console.log(id);
       template($('#software div[template].col'),experience,function(){
         var el = $('#software .col');
         index(el);
@@ -155,10 +157,29 @@ $(function(){
         var marie = $('#software .description-container .description');
         index(marie);
         marie.each(function(){
-          var descY = ($(this).parent().height() / 2) - ($(this).find('p').height() / 2);
-          $(this).hide().find('p').css('top',descY);
+         verticalCenter($(this));
         });
         selectDescription(1);
+      });
+    }
+    if (id == 'education') {
+      template($('#education .col[template]'),education,function(){
+        var col = $('#education .col');
+        template($('#education .edu-desc .desc[template]'),education,function(){
+          var desc = $('#education .edu-desc .desc');
+          index(col);
+          col.each(function(){
+            $(this).on('click',function(){
+              var n = $(this).attr('index');
+              selectEduDesc({'master':col,'slave':desc},n);
+            });
+          });
+          index(desc);
+          desc.each(function(){
+            verticalCenter($(this));
+          });
+          selectEduDesc({'master':col,'slave':desc},1);
+        });
       });
     }
   });
@@ -222,6 +243,23 @@ $(function(){
     if (software == 'html'){ arrowAnim({'left':'539px'}); }
     if (software == 'css'){ arrowAnim({'left':'695px'}); }
     if (software == 'git'){ arrowAnim({'left':'852px'}); }
+  }
+  function selectEduDesc(el,n){
+    var master = $(el.master[n-1]);
+    var slave = $(el.slave[n-1]);
+    var fadeTime = 400;
+    oldDesc = el.slave.parent().find('.active');
+    function present(){
+      slave.addClass('active').fadeIn(fadeTime);
+    }
+    el.master.removeClass('active');
+    master.addClass('active');
+    if (oldDesc.size()) {
+      oldDesc.removeClass('active').fadeOut(fadeTime,function(){
+        present();
+      });
+    }
+    else { present(); }
   }
 });
 var portfolio = [{
@@ -367,4 +405,26 @@ var portfolio = [{
     "device":"desktop",
   },{
     "device":"mobile"
+  }];
+  var education = [{
+    "icon":"hc",
+    "school":"Humber College in Etobicoke",
+    "date":"2005<span class='icon range sprite'></span>2006",
+    "degree":"Post Grad Certificate in 3D Animation",
+    "completion":"Graduated with Honors &amp; Presidents Letter",
+    "notes":"At Humber I had focus, classes I loved that were really hands on.<br><br> There was the life drawing course where I drew beautiful nudes. The sculpting class where we made our dreams (or nightmares) come true. The acting class where we had to let loose and give up the idea of being cool. And the class that I enjoyed the most; 3D animation. <br><br> By the end of the year we had to complete a demo reel to showcase our chosen domain in 3D."
+  },{
+    "icon":"uqo",
+    "school":"Universit&#233; du Qu&#233;bec en Outaouais",
+    "date":"2003<span class='icon range sprite'></span>2004",
+    "degree":"Comic Book Creation",
+    "completion":"Transfered to IADT to study game design",
+    "notes":"Throughout Highschool I was always drawing, and I read a lot of comic books. At the time I didn't really know what I wanted to do, and my parents recommended I try it out.<br><br>When highschool was almost over, I enrolled and I was accepted immediately into the program.<br><br>Although I loved reading comic books &amp; drawing, I discovered quickly that I wanted to try something else. The first year was filled with awesome people and boring classes. Art history, french class, a civics class and the only class I really enjoyed: Philosophy. <br><br>I was and still am in love with Philosophy, discovering the meaning of life and dying wise and content is my goal."
+  },{
+    "icon":"dls",
+    "school":"Ecole Secondaire Publique De La Salle",
+    "date":"1999<span class='icon range sprite'></span>2003",
+    "degree":"High School Diploma in Arts Concentration",
+    "completion":"Graduated with a Highschool diploma and great foundation in art",
+    "notes":"My highschool years were formative for what I do now. I had art every day, and this was a dream come true.<br><br>My art teachers were great and pushed me to new heights. But it was the people I went to school with who really forced me to become better. Highschool was a catalyst for realizing that a career in arts was my goal.<br><br>I've had a few twists and turns since highschool ended, and still do, but that's part of being a creative person.<br><br>Thank you, Mr. Langlois and Mr. Charboneau."
   }];
