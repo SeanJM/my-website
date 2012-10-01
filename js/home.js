@@ -1,38 +1,79 @@
+/* Check to see if the page has CSS animations */
 var cssAnim = true;
 if ($('html').hasClass('no-cssanimations')) { cssAnim = false; }
+
+function loadBlog() {
+  $('#home').hide();
+  get_blog();
+}
+function loadHome() {
+  $('#blog').hide();
+  $('#home').show();
+}
+
+function hash(page){
+  if (page == '#home') {
+    console.log('home');
+    loadHome();
+  }
+
+  if (page == '#blog') {
+    console.log('blog');
+    loadBlog();
+  }
+
+  else { 
+    console.log('home'); 
+    loadHome();
+  }
+}
+
 function imgLink(link){
   if (link.indexOf('.png') >= 0) {
-    var img = link.split(',');
-    var html = [];
-    if ($('.lightbox').size()) { var lbindex = $('.lightbox').size(); lbindex--; }
+    var img       = link.split(','),
+        html      = [];
+    
+    if ($('.lightbox').size()) { 
+      var lbindex = $('.lightbox').size()-1; 
+    }
     else { lbindex = -1; }
+    
     for (i=0;i < img.length;i++) {
-      var dir = 'img/portfolio/' + img[i].split('/')[0] + '/';
-      var file = img[i].split('/')[1];
-      var thumb = file.split('.png')[0] + '-th.png';
+      
+      var dir     = 'img/portfolio/' + img[i].split('/')[0] + '/',
+          file    = img[i].split('/')[1],
+          thumb   = file.split('.png')[0] + '-th.png';
+      
       lbindex++;
       var output = '<div class="mask" index="' + (i+1) + '"><div class="lightbox" shadowindex="' + lbindex + '" href="' + dir + file + '"><img src="' + dir + thumb + '"></div></div>';
       html.push(output);
     }
+
     return html;
+
   }
 }
 function makeImgTag(el){
-  var link, img;
-  link = el.attr('imglink');
-  img = imgLink(link);
-  container = $('<div class="container"></div>');
+  
+  var link        = el.attr('imglink'),
+      img         = imgLink(link),
+      container   = $('<div class="container"></div>');
+  
   for (i = 0;i < img.length;i++) {
-    var newImg = $(img[i]);
-    var nav = $('<div class="btn" index="' + (i+1) + '"><div class="circle"></div></div>');
+    
+    var newImg    = $(img[i]),
+        nav       = $('<div class="btn" index="' + (i+1) + '"><div class="circle"></div></div>'),
+        imgNav = el.parent().find('.imgNav');
+    
     if (i <= 0) {
       nav.addClass('active');
       newImg.addClass('active');
     }
+    
     newImg.find('.lightbox').on('click',function(){ lightbox($(this)); });
     newImg.appendTo(container);
-    imgNav = el.parent().find('.imgNav');
     nav.appendTo(imgNav);
+    
     imgNav.find('.btn').each(function() {
       $(this).on('click',function() { 
         var index = $(this).attr('index');
@@ -40,31 +81,52 @@ function makeImgTag(el){
         $(this).addClass('active').parents('.album').find('div.mask[index="' + index + '"]').addClass('active');
       });
     });
+
   }
-  imgNavX = (imgNav.parent().width() / 2) - (imgNav.width() / 2);
+  var imgNavX = (imgNav.parent().width() / 2) - (imgNav.width() / 2);
+  
   imgNav.css('margin-left',imgNavX);
+  
   el.parent().prepend(container);
   el.remove();
 }
+
+function techTagLabel(arr) {
+  ret = {
+    'ai':'Illustrator',
+    'jq':'jQuery',
+    'ps':'Photoshop',
+    'git':'Git',
+    'html4':'HTML',
+    'html5':'HTML',
+    'css2':'CSS',
+    'css3':'CSS',
+    'chrome':'Extension'
+  };
+  return ret[arr];
+}
+
 function makeTechTag(el){
   if (el.attr('tech')) {
-    var array, tag, li, str;
-    array = el.attr('tech').split(',');
-    ul = $('<ul class="tech"></ul>');
+    
+    var array = el.attr('tech').split(','),
+        ul    = $('<ul class="tech"></ul>'),
+        tag,
+        li, 
+        str;
+
     for (i=0;i < array.length;i++) {
       li = $('<li><span class="icon sprite"></span></li>');
-      if (array[i] == 'ai') { str = 'Illustrator'; }
-      if (array[i] == 'jq') { str = 'jQuery'; }
-      if (array[i] == 'ps') { str = 'Photoshop'; }
-      if (array[i] == 'git') { str = 'Git'; }
-      if (array[i] == 'html4' || array[i] == 'html5') { str = 'HTML' }
-      if (array[i] == 'css2' || array[i] == 'css3') { str = 'CSS'; }
-      if (array[i] == 'chrome') { str = 'Extension'; }
+      
+      str = techTagLabel(array[i]);
+      
       $('span',li).addClass(array[i]).after(str);
       $(ul).append(li);
     }
+    
     el.after(ul);
     el.remove();
+  
   }
 }
 function makeTitle(el){
@@ -75,6 +137,10 @@ function makeTitle(el){
   }
 }
 $(function(){
+
+  /* Check window location */
+  hash(window.location.hash);
+
   $('.dropdown.contact').hover(function(){
     var ul = $(this).find('ul');
     ul.show().css('opacity','0').stop().animate({'opacity':'1'},500);
@@ -83,10 +149,7 @@ $(function(){
       $(this).hide();
     });
   })
-  $('.contact.email').click(function(){ window.location = 'mailto:seanjmacisaac@gmail.com?subject=Business Inquiry'; });
-  $('.contact.skype').click(function(){ window.location = 'skype:seanmacisaac?chat'; });
-  $('.contact.twitter').click(function(){ window.open('http://www.twitter.com/SeanJMacIsaac'); });
-  $('.contact.linkedin').click(function(){ window.open('http://www.linkedin.com/pub/sean-macisaac/29/255/51a'); });
+  
   //Handing the showing and the hiding of the mini header
   $(window).scroll(function(){
     var scroll = $(window).scrollTop();
@@ -102,6 +165,7 @@ $(function(){
     }
     fixedHeader.css('top',i + 'px');
   });
+
   function template(self,arr,callback) {
     var t = arr.length;
     for (i = 0;i < arr.length;i++) {
@@ -116,6 +180,7 @@ $(function(){
       callback(); 
     }
   }
+
   $('div[module]').each(function(){
     var self = $(this);
     var id = $(this).attr('id');
@@ -131,58 +196,87 @@ $(function(){
     var descY = (n.parent().height() / 2) - (n.find('p').height() / 2);
     n.hide().find('p').css('top',descY);
   }
+  function headerBind() {
+    /* Contact */
+    $('.contact.email')
+      .on('click',function(){ window.location = 'mailto:seanjmacisaac@gmail.com?subject=Business Inquiry'; });
+    $('.contact.skype')
+      .on('click',function(){ window.location = 'skype:seanmacisaac?chat'; });
+    $('.contact.twitter')
+      .on('click',function(){ window.open('http://www.twitter.com/SeanJMacIsaac'); });
+    $('.contact.linkedin')
+      .on('click',function(){ window.open('http://www.linkedin.com/pub/sean-macisaac/29/255/51a'); });
+    
+    $(window).bind('hashchange',function(){
+      hash(window.location.hash);
+    });
+    /* Header Links */
+  }
+
+  function workBind() {
+    template($('#work div[template]'),work,function(){
+      $('div[tech]').each(function() {
+        makeTechTag($(this));
+      });
+      $('img[imglink]').each(function(){
+        makeImgTag($(this));
+      });
+    });
+  }
+  
+  function softwareBind() {
+    template($('#software div[template].col'),experience,function(){
+      var el = $('#software .col');
+      index(el);
+      el.each(function(){
+        $(this).on('click',function() { 
+          selectDescription($(this).attr('index'));
+        });
+      });
+    });
+    template($('#software .description-container div[template]'),experience,function(){
+      var marie = $('#software .description-container .description');
+      index(marie);
+      marie.each(function(){
+       verticalCenter($(this));
+      });
+      selectDescription(1);
+    });
+  }
+
+  function educationBind() {
+    template($('#education .col[template]'),education,function(){
+      var col = $('#education .col');
+      template($('#education .edu-desc .desc[template]'),education,function(){
+        var desc = $('#education .edu-desc .desc');
+        index(col);
+        col.each(function(){
+          $(this).on('click',function(){
+            var n = $(this).attr('index');
+            selectEduDesc({'master':col,'slave':desc},n);
+          });
+        });
+        index(desc);
+        desc.each(function(){
+          verticalCenter($(this));
+        });
+        selectEduDesc({'master':col,'slave':desc},1);
+      });
+    });
+  }
+
+  /* Perform Binding on loaded modules */
   $('div.section').on('moduleloaded',function(){
+    
     var id = $(this).attr('id');
-    if (id == 'portfolio') {
-      template($('#portfolio div[template]'),portfolio,function(){
-        $('div[tech]').each(function() {
-          makeTechTag($(this));
-        });
-        $('img[imglink]').each(function(){
-          makeImgTag($(this));
-        });
-      });
-    }
-    if (id == 'software') {
-      template($('#software div[template].col'),experience,function(){
-        var el = $('#software .col');
-        index(el);
-        el.each(function(){
-          $(this).on('click',function() { 
-            selectDescription($(this).attr('index'));
-          });
-        });
-      });
-      template($('#software .description-container div[template]'),experience,function(){
-        var marie = $('#software .description-container .description');
-        index(marie);
-        marie.each(function(){
-         verticalCenter($(this));
-        });
-        selectDescription(1);
-      });
-    }
-    if (id == 'education') {
-      template($('#education .col[template]'),education,function(){
-        var col = $('#education .col');
-        template($('#education .edu-desc .desc[template]'),education,function(){
-          var desc = $('#education .edu-desc .desc');
-          index(col);
-          col.each(function(){
-            $(this).on('click',function(){
-              var n = $(this).attr('index');
-              selectEduDesc({'master':col,'slave':desc},n);
-            });
-          });
-          index(desc);
-          desc.each(function(){
-            verticalCenter($(this));
-          });
-          selectEduDesc({'master':col,'slave':desc},1);
-        });
-      });
-    }
+    
+    if (id == 'header')     { headerBind();     }
+    if (id == 'work')       { workBind();       }
+    if (id == 'software')   { softwareBind();   }
+    if (id == 'education')  { educationBind();  }
+  
   });
+
   function index(el){
     var i = 0;
     el.each(function(){
@@ -190,6 +284,7 @@ $(function(){
       $(this).attr('index',i);
     });
   }
+
   function quoteView(n) {
     var active = $('#quotes .quote-container.active');
     var delay = 550;
@@ -199,6 +294,7 @@ $(function(){
     $('#quotes .quote-nav .btn.active').removeClass('active');
     $('#quotes .quote-nav .btn[quoteIndex="' + n + '"]').addClass('active');
   }
+
   function quote() {
     template($('#quotes .quote-container'),quotes,function(){
       var i = 0;
@@ -216,14 +312,16 @@ $(function(){
       quoteNav.css('margin-left',qnx);
     });
   }
+  
   $('document').ready(function(){ quote(); });
+  
   function selectDescription(n){
-    var el = $('#software .description-container');
-    var desc = el.find('.description[index="' + n + '"]');
-    var software = desc.find('p').attr('class');
-    var arrow = el.find('.arrow');
-    var arrowTransition = 300;
-    arrow.attr('class','arrow ' + software);
+    var el              = $('#software .description-container'),
+        desc            = el.find('.description[index="' + n + '"]'),
+        software        = desc.find('p').attr('class'),
+        arrow           = el.find('.arrow').attr('class','arrow ' + software),
+        arrowTransition = 300;
+    
     function show(){
       var active = el.find('.description.active');
       if (active.size()) {
@@ -233,10 +331,12 @@ $(function(){
       }
       else { desc.addClass('active').show(); }
     }
+
     function arrowAnim(a) { 
       if (cssAnim == false) { arrow.animate(a,arrowTransition); }
       show();
     }
+
     if (software == 'ai') { arrowAnim({'left':'68px'}); }
     if (software == 'ps'){ arrowAnim({'left':'225px'}); }
     if (software == 'jq'){ arrowAnim({'left':'379px'}); }
@@ -262,7 +362,7 @@ $(function(){
     else { present(); }
   }
 });
-var portfolio = [{
+var work = [{
     "client":"Pixologic",
     "project":"Sculptris",
     "date":"Aug 2012",

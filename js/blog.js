@@ -1,46 +1,157 @@
-$(function(){
-  // GENERAL FUNCTIONS //
-  function get_post(date) {
-    $('#blog-area').append('<div class="entry" date="' + date + '" />');
-    $('#blog-area .entry[date="' + date + '"]').load('blog/' + date + '.html',function(response, status, xhr){
-      if (status == 'error') { $('#blog-area .entry[date="' + date + '"]').remove(); }
+// GENERAL FUNCTIONS //
+
+function weekday(day) {
+  var name = {
+    0 : 'Sunday',
+    1 : 'Monday',
+    2 : 'Tuesday',
+    3 : 'Wednesday',
+    4 : 'Thursday',
+    5 : 'Friday',
+    6 : 'Saturday'
+  }
+  return name[day];
+}
+
+function monthName(month) {
+  var name = {
+    1 : 'January',
+    2 : 'February',
+    3 : 'March',
+    4 : 'April',
+    5 : 'May',
+    6 : 'June',
+    7 : 'July',
+    8 : 'August',
+    9 : 'September',
+    10 : 'October',
+    11 : 'November',
+    12 : 'December'
+  }
+  return name[month];
+}
+
+function prevDate(num) {
+  var date = new Date(),
+      d = date.getDate(),
+      m = date.getMonth()+1,
+      y = date.getFullYear(),
+      monthEnd = {
+      1 : 31, 2 : 29, 3 : 31, 4 : 30, 
+      5 : 31, 6 : 30, 7 : 31, 8 : 31,
+      9 : 30, 10: 31, 11: 30, 12: 31
+      };
+  for (i = 0; num+i < 0;i++) {
+    d--;
+    if (d == 0) {
+      m--;
+      if (m == 0) { m = 12; }
+      d = monthEnd[m];            
+    }
+  }
+  return m + '-' + d + '-' + y;
+}
+
+function get_post(date) {
+  var templateCache = $('<div />');
+  templateCache.load('templates/blog-entry.html',function(){
+    var cache = $('<div />');
+    cache.load('blog/' + date + '.html',function(response, status, xhr){
+      if (status == 'error') { }
       else {
-        var day = date.substring(2,4);
-        var month = date.substring(0,2);
-        var year = date.substring(5,8);
-        $('#blog-area .entry[date="' + date + '"]')
-          .attr('day',day)
-          .attr('month',month)
-          .attr('year',year);
+        var template  = templateCache.html().replace(/{{(\w*)}}/g,function(m,key) { 
+            newDate   = new Date(date.replace(/-/g,'/')),
+            ddd       = weekday(newDate.getDay()),
+            mmm       = monthName(newDate.getMonth()+1),
+            m         = date.split('-')[0],
+            d         = date.split('-')[1],
+            y         = date.split('-')[2];
+
+          if (key == 'd') { return d; }
+          if (key == 'ddd') { return ddd; }
+          if (key == 'm') { return m; }
+          if (key == 'mmm') { return mmm; }
+          if (key == 'y') { return y; }
+
+          return cache.find(key).length?cache.find(key).html():""; 
+        });
+        templateCache.replaceWith(templateCache.html(template).contents())
+          .appendTo($('#blog'));
       }
     });
+  });
+}
+
+function get_posts(today) {
+  var str = today.split('-'),
+      m = str[0],
+      d = str[1],
+      y = str[2],
+      i = 0;
+
+  while ($('blog-entry').size() <= 10 && i <= 30) {
+    get_post(prevDate(i*-1));
+    i++;
   }
-  function get_previous_post() {
-    var previousEntry = new Object();
-    previousEntry.day= $('#blog-area .entry:last').attr('day') - 1;
-    previousEntry.month= $('#blog-area .entry:last').attr('month');
-    previousEntry.year= $('#blog-area .entry:last').attr('year');
-    if (previousEntry.day == 0) {
-      previousEntry.month = previousEntry.month - 1;
-      if (previousEntry.month == 1 || previousEntry.month == 3 || previousEntry.month == 5 || previousEntry.month == 7 || previousEntry.month == 8 || previousEntry.month == 10 || previousEntry.month == 12) { previousEntry.day = 31; }
-      // Febuary
-      if (previousEntry.month == 2) { 
-        previousEntry.day = 29;
-        if (previousEntry.year != 2016) { previousEntry.day = 28 };
-      }
-      if (previousEntry.month == 4 || previousEntry.month == 6 || previousEntry.month == 9 || previousEntry.month == 11) {
-        previousEntry.day = 30; 
-      }
+  console.log('loaded all posts');
+}
+
+function get_blog() {
+  if ($('#blog').size() == 0) {
+    var blog = $('<div id="blog" />').appendTo('#mainContainer > .container');
+  }
+  var date  = new Date(),
+      m     = date.getMonth(),
+      d     = date.getDate(),
+      y     = date.getFullYear();
+      today = m + '-' + d + '-' + y;
+  get_posts(today);
+}
+
+
+function get_previous_post() {
+  var prev      = {
+    'day'     : $('#blog-area .entry:last').attr('day'),
+    'month'   : $('#blog-area .entry:last').attr('month'),
+    'year'    : $('#blog-area .entry:last').attr('year')
+  },
+      monthEnd  = {
+    '1' : 31, '2' : 28, '3' : 31, '4' : 30, 
+    '5' : 31, '6' : 30, '7' : 31, '8' : 31,
+    '9' : 30, '10': 31, '11': 30, '12': 31
+  }
+  
+  var prevD   = prev['day']-1,
+      prevM   = prev['month'],
+      prevY   = prev['year'];
+  
+  if (prevD == 0) {
+    var prevMonth = prev['month']-1;
+    
+    if (prevMonth == 0) {
+      var prevM = 12;
+      var prevY = prev['year']-1;
     }
-    previousEntry.date = previousEntry.month + "" + previousEntry.day + "" + previousEntry.month;
-    console.log(previousEntry.day);
-    get_post(previousEntry.date);
+
+    prevD = monthEnd[prevM]; 
+    // Febuary
+    if (prevMonth == 2) { 
+      prevD = 29;
+      if (prevY != 2016) { prevD = 28 };
+    }
+
   }
-  // ///////// //
-  // PAGE LOAD //
-  // ///////// //
-  // Get todays post (script this)
-  get_post('08142012');
+
+  prevPost = prevM + "" + prevD + "" + prevM;
+  
+  get_post(prevPost);
+}
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>> //
+//          PAGE LOAD         //
+// >>>>>>>>>>>>>>>>>>>>>>>>>> //
+
+$(function(){
   // As the user scrolls the blog get the 
   //previous day's post
   $(window).scroll(function(){

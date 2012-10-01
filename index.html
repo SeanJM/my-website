@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="css/home.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
 </head>
-<body id="home">
+<body>
   <div id="fixed-header">
     <div class="container">
       <div class="content">
@@ -26,30 +26,33 @@
   <div id="mainContainer">
     <div class="container">
       <div id="header" class="section" module></div>
-      <div id="quotes" class="section">
-        <div class="quote-slide">
-          <div class="quote-container">
-            <p class="quote"><span class="character">&quot;</span>{{quote}}</p>
-            <p class="client">{{client}}</p>
+      <div id="home">
+        <div id="quotes" class="section">
+          <div class="quote-slide">
+            <div class="quote-container">
+              <p class="quote"><span class="character">&quot;</span>{{quote}}</p>
+              <p class="client">{{client}}</p>
+            </div>
           </div>
+          <div class="quote-nav"></div>
         </div>
-        <div class="quote-nav"></div>
+        <div id="work" class="section" module></div>
+        <div id="software" class="section" module></div>
+        <!-- <div id="value" class="section" module></div> -->
+        <!-- <div id="education" class="section" module></div> -->
+       <!--  <div id="job" class="section">
+          <div class="introduction">
+            <p>I will always do my best work. Your project is very important to me, it's my work and my passion.</p>
+            <p>You can always depend on my honesty and integrity on the project. I have your interests at heart.</p>
+          </div>
+        </div> -->
       </div>
-      <div id="portfolio" class="section" module></div>
-      <div id="software" class="section" module></div>
-      <!-- <div id="value" class="section" module></div> -->
-      <!-- <div id="education" class="section" module></div> -->
-     <!--  <div id="job" class="section">
-        <div class="introduction">
-          <p>I will always do my best work. Your project is very important to me, it's my work and my passion.</p>
-          <p>You can always depend on my honesty and integrity on the project. I have your interests at heart.</p>
-        </div>
-      </div> -->
+      <p id="copy">&copy; 2009-2012 Sean J MacIsaac and the respective copywrite holders of the works shown here.</p>
     </div>
-    <p id="copy">&copy; 2009-2012 Sean J MacIsaac and the respective copywrite holders of the works shown here.</p>
-  </div>
+      </div>
   <div id="shadowbox" style="display:none"></div>
   <script type="text/javascript" src="js/shadowbox.js"></script>
   <script type="text/javascript" src="js/home.js"></script>
+  <script type="text/javascript" src="js/blog.js"></script>
 </body>
 </html>

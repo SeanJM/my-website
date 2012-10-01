@@ -31,18 +31,31 @@ html{}
     border-bottom:1px dotted #FF007F;
   }
   /* ----------- Sprites ------------ */
-    .sprite{
-      background-image:url('../img/home-sprites-01.png');
+    #fixed-header .sprite,
+    #header .sprite{
+      background-image:url('../img/sprite_Header.png');
+      background-repeat:no-repeat;
+    }
+    #work .sprite{
+      background-image:url('../img/sprite_Software-mini.png');
+      background-repeat:no-repeat;
+    }
+    #software .sprite{
+      background-image:url('../img/sprite_Software.png');
+      background-repeat:no-repeat;
+    }
+    #shadowbox .sprite {
+      background-image:url('../img/sprite_shadowbox.png');
       background-repeat:no-repeat;
     }
   /* ---------- Aggredated ---------- */
-  #portfolio .col .album .imgNav .btn,
+  #work .col .album .imgNav .btn,
   #quotes .btn{
     float: left;
     width: 20px;
     height: 20px;
   }
-  #portfolio .col .album .imgNav .btn .circle,
+  #work .col .album .imgNav .btn .circle,
   #quotes .btn .circle{
     width: 8px;
     height: 8px;
@@ -51,7 +64,7 @@ html{}
     background: #D5D5D5;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.6);
   }
-  #portfolio .col .album .imgNav .btn.active .circle,
+  #work .col .album .imgNav .btn.active .circle,
   #quotes .btn.active .circle{
     background: #0098FF;
   }
@@ -175,31 +188,31 @@ html{}
                 margin: 0 2px 0 0;
               }
               .moreInfo .more .tech li .ai{
-                background-position: -639px -32px;
+                background-position: -16px 0;
               }
               .moreInfo .more .tech li .ps{
-                background-position: -655px -32px;
+                background-position: -32px 0;
               }
               .moreInfo .more .tech li .css3{
-                background-position: -639px -48px;
+                background-position: -16px -16px;
               }
               .moreInfo .more .tech li .css2{
-                background-position: -655px -64px;
+                background-position: -32px -32px;
               }
               .moreInfo .more .tech li .html5{
-                background-position: -623px -48px;
+                background-position: 0 -16px;
               }
               .moreInfo .more .tech li .html4{
-                background-position: -639px -64px;
+                background-position: -16px -32px;
               }
               .moreInfo .more .tech li .jq{
-                background-position: -623px -32px;
+                background-position: 0 0;
               }
               .moreInfo .more .tech li .git{
-                background-position: -655px -48px;
+                background-position: -32px -16px;
               }
               .moreInfo .more .tech li .chrome{
-                background-position: -623px -64px;
+                background-position: 0 -32px;
               }
       /* < More Info */
       /* Lightbox */
@@ -280,10 +293,10 @@ html{}
             width: 16px;
             height: 16px;
             margin: 13px 10px 0 0;
-            background-position: -578px -82px;
+            background-position: 0 0;
           }
           #shadowbox .imageFrame .close:hover{
-            background-position:-578px -98px;
+            background-position:0 -16px;
           }
           /* Nav */
           #shadowbox .imageFrame .nav{
@@ -391,16 +404,16 @@ html{}
         float: left;  
       }
       li.contact.email .sprite{
-        background-position: -635px -85px;
+        background-position: 0 -78px;
       }
       li.contact.skype .sprite{
-        background-position: -636px -124px;
+        background-position: -30px -78px;
       }
       li.contact.twitter .sprite{
-        background-position: -635px -161px;
+        background-position: -60px -78px;
       }
       li.contact.linkedin .sprite{
-        background-position: -636px -200px;
+        background-position: -90px -78px;
       }
     /* End General */
     #fixed-header{
@@ -438,7 +451,7 @@ html{}
     }
     #fixed-header .logo{
       width:168px;
-      height:17px;
+      height:16px;
       background-position: -232px 0;
       margin:12px auto;
     }
@@ -479,7 +492,7 @@ html{}
         background: #0098FF;
         float: left;
         width:100%;
-        height:400px;
+        height:426px;
       }
       #header #contact-links{
         margin:20px 0 0 20px;
@@ -521,23 +534,6 @@ html{}
         #contact-links ul li:nth-child(4){
           border-bottom:none;
         }
-      #header h1.email {
-        float: left;
-        font-size: 16px;
-        font-weight: normal;
-      }
-      #header h2.phone {
-        float: left;
-        clear: both;
-        font-size: 16px;
-        font-weight: normal;
-      }
-      #header h2.lang-toggle {
-        float: right;
-        font-size: 16px;
-        font-weight: normal;
-        cursor: pointer;
-      }
       #header div.logo {
         width: 232px;
         height: 77px;
@@ -546,7 +542,7 @@ html{}
       }
       #header div.platforms {
         width: 562px;
-        height:204px;
+        height:194px;
         margin: 49px auto;
       }
         #header div.platforms .sprite{
@@ -556,7 +552,7 @@ html{}
           width: 71px;
           height: 139px;
           margin: 67px 0 0 -25px;
-          background-position: -968px -313px;
+          background-position: -544px -192px;
           position: relative;
           z-index: 0;
         }
@@ -564,16 +560,32 @@ html{}
           width: 175px;
           height: 215px;
           margin: -4px 0px 0;
-          background-position: -425px -238px;
+          background-position: 0 -116px;
         }
         #header div.platforms .desktop{
           width: 369px;
           height: 205px;
           margin: 9px 0 0 -79px;
-          background-position: -601px -247px;
+          background-position: -175px -126px;
           position: relative;
           z-index: 1;
         }
+    #header .menu-item {
+      color: #0098FF;
+      text-align: center;
+      line-height: 60px;
+      background: #fff;
+      margin: 2px 0 0 0;
+      position: relative;
+      cursor: pointer;
+      width: 474px;
+    }
+    #header #blog-link {
+      float: right;
+    }
+    #header #work-link {
+      float: left;
+    }
     /* ------- End Header ------- */
     /* -------- Overview --------- */
     #overview{
@@ -590,41 +602,41 @@ html{}
         }
     /* ------- End Overview ------ */
     /* -------- Portfolio -------- */
-    #portfolio{
+    #work{
       background:#fff;
       margin:30px 0 0 0;
       padding-top:40px;
       padding-bottom:40px;
     }
-      #portfolio .col{
+      #work .col{
         width:29.5%;
         margin-bottom:25px;
         float:left;
       }
-      #portfolio .col:nth-child(3n+1){
+      #work .col:nth-child(3n+1){
         float:left;
       }
-      #portfolio .col:nth-child(3n+2){
+      #work .col:nth-child(3n+2){
         margin-left:5%;
         margin-right:5%;
       }
-      #portfolio .col:nth-child(3n+3){
+      #work .col:nth-child(3n+3){
         float:right;
       }
       /* Every column after the first row of 3 columns */
-        #portfolio .col .project-title{
+        #work .col .project-title{
           width:100%;
           float:left;
           margin:0 0 10px;
         }
-          #portfolio .col .project-title h3.project-client{
+          #work .col .project-title h3.project-client{
             float:left;
             font-size: 16px;
             font-weight: 400;
             color:#7E7E7E;
             line-height: 30px;
           }
-          #portfolio hr{
+          #work hr{
             width:100%;
             border:none;
             border-bottom:1px solid #E6E6E6;
@@ -632,14 +644,14 @@ html{}
             float: left;
           }
           /* Portfolio Album */
-            #portfolio .col .album{
+            #work .col .album{
               float: left;
               position: relative;
               top: 0;
               right: 0;
               width:100%;
             }
-              #portfolio .col .album .container{
+              #work .col .album .container{
                 overflow: hidden;
                 background: #fff;
                 box-shadow:0 2px 2px rgba(0,0,0,0.2),0 0 3px rgba(0,0,0,0.4);
@@ -648,7 +660,7 @@ html{}
                 width:249px;
                 height:222px;
               }
-                #portfolio .col .album .container .mask{
+                #work .col .album .container .mask{
                   margin:2px;
                   position: absolute;
                   top:0;
@@ -657,25 +669,25 @@ html{}
                   overflow: hidden;
                   cursor: pointer;
                 }
-                #portfolio .col .album .container .mask.active{
+                #work .col .album .container .mask.active{
                   z-index: 1;
                 }
-                    #portfolio .col .album .container .mask a img{
+                    #work .col .album .container .mask a img{
                       float: left;
                     }
-              #portfolio .col .album .imgNav{
+              #work .col .album .imgNav{
                 width:auto;
                 height:20px;
                 margin:15px auto 0;
                 clear:both;
                 display: inline-block;
               }
-                #portfolio .col .album .imgNav .btn{
+                #work .col .album .imgNav .btn{
                   width:20px;
                   height:20px;
                   float: left;
                 }
-                #portfolio .col .album .imgNav .btn .circle{
+                #work .col .album .imgNav .btn .circle{
                   width:8px;
                   height:8px;
                   background: #D5D5D5;
@@ -683,31 +695,31 @@ html{}
                   margin:6px auto;
                   box-shadow:inset 0 1px 3px rgba(0,0,0,0.6);
                 }
-                #portfolio .col .album .imgNav .btn.active .circle{
+                #work .col .album .imgNav .btn.active .circle{
                   background: #0098FF;
                 }
           /* End Album */
-        #portfolio .moreInfo .more{
+        #work .moreInfo .more{
           top: 23px;
         }
-          #portfolio .moreInfo .more .project{
+          #work .moreInfo .more .project{
             border-bottom:1px solid #E5E5E5;
             float: left;
             width: 100%;
             padding:0 0 14px 0;
             margin:0 0 14px 0;
           }
-          #portfolio .moreInfo .more .project .label{
+          #work .moreInfo .more .project .label{
             float: left;
             width: 30%;
             color: #BCBCBC;
           }
-          #portfolio .moreInfo .more .project .value{
+          #work .moreInfo .more .project .value{
             float: right;
             width: 70%;
             text-align: right;
           }
-          #portfolio .moreInfo .more .date {
+          #work .moreInfo .more .date {
             float: left;
             font-size: 14px;
             font-weight: 400;
@@ -716,7 +728,7 @@ html{}
             width: 100%;
             margin:4px 0 0;
           }
-          #portfolio .moreInfo .more .project-name {
+          #work .moreInfo .more .project-name {
             float: left;
             clear: left;
             width: 100%;
@@ -725,7 +737,7 @@ html{}
             line-height: 22px;
             color: #989898;
           }
-          #portfolio .moreInfo .more .role{
+          #work .moreInfo .more .role{
             float: left;
             width: 100%;
             font-size: 14px;
@@ -734,7 +746,7 @@ html{}
             color: #989898;
             margin:4px 0 0;
           }
-        #portfolio .col p.description {
+        #work .col p.description {
           float: left;
           clear: both;
           height: 60px;
@@ -822,27 +834,27 @@ html{}
         }
         /* Illustrator */
         #software .col .icon.ai{
-          background-position: -85px -90px;
+          background-position: -85px 0;
         }
         /* Photoshop */
         #software .col .icon.ps{
-          background-position: -171px -90px;
+          background-position: -170px 0px;
         }
         /* jQuery */
         #software .col .icon.jq{
-          background-position: 0 -90px;
+          background-position: 0 0;
         }
         /* HTML5 */
         #software .col .icon.html{
-          background-position: 0 -170px;
+          background-position: 0 -80px;
         }
         /* CSS3 */
         #software .col .icon.css{
-          background-position: -85px -170px;
+          background-position: -85px -80px;
         }
         /* Git */
         #software .col .icon.git{
-          background-position: -171px -170px;
+          background-position: -171px -80px;
         }
       /* End Icons */
         #software .col h3{
