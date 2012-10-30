@@ -407,34 +407,40 @@ html{}
       position: fixed;
       width:100%;
       z-index:1000;
-      top:-51px;
+      top:-135px;
     }
     #fixed-header > .container{
       width:950px;
       margin:auto;
     }
     #fixed-header > .container > .content{
-      background: #0098FF;
-      width:950px;
-      margin:auto;
-      float: left;
-      height:40px;
-      position: relative;
+      background        : #0098FF;
+      width             :42px;
+      margin            :auto;
+      float             : left;
+      height            :135px;
+      position          : relative;
+      opacity           : 0.3;
+      -webkit-transition: all 0.5s;
+      -moz-transition   : all 0.5s;
+      -o-transition     : all 0.5s;
+      -ms-transition    : all 0.5s;
+      transition        : all 0.5s;
+    }
+    #fixed-header > .container > .content{
+      opacity: 1;
     }
     #fixed-header ul{
       margin:5px 0 0 5px;
     }
     #fixed-header li.contact {
-      opacity:0.5;
+      opacity:1;
       padding:0;
       -webkit-transition:opacity 0.5s;
       -moz-transition:opacity 0.5s;
       -ms-transition:opacity 0.5s;
       -o-transition:opacity 0.5s;
       transition:opacity 0.5s;
-    }
-    #fixed-header li.contact:hover {
-      opacity:1;
     }
     #fixed-header .logo{
       width:168px;
